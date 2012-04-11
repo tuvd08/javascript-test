@@ -1,0 +1,14 @@
+body, html {
+	padding: 0px;
+	margin: 0px;
+	font-family: Ubuntu,Tahoma,Verdana,Arial,Helvetica,sans-serif;
+	font-size: 11pt;
+}
+
+.Copyright {
+	width: 100%; 
+	overflow: hidden; 
+	text-align: center;
+	position: absolute;
+	bottom: 10px;
+}
