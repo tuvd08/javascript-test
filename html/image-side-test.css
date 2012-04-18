@@ -1,0 +1,13 @@
+.view {
+	
+}
+.row-view {
+	float: left;
+}
+
+.ImgItem {
+	background: url("http://www.loadingicons.com/images/icons/indicator_arrows_02-18-2007_06-08-2007_06-12-2007.gif") no-repeat center;
+	padding: 8px 8px 0px 0px;
+	cursor: pointer;
+	min-width: 300px;
+}
