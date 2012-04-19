@@ -1,13 +1,32 @@
 .view {
 	
 }
+
 .row-view {
 	float: left;
 }
 
 .ImgItem {
-	background: url("http://www.loadingicons.com/images/icons/indicator_arrows_02-18-2007_06-08-2007_06-12-2007.gif") no-repeat center;
+	background:
+		url("http://www.loadingicons.com/images/icons/indicator_arrows_02-18-2007_06-08-2007_06-12-2007.gif")
+		no-repeat center;
 	padding: 8px 8px 0px 0px;
 	cursor: pointer;
 	min-width: 300px;
+}
+
+.ShowImg {
+	background: none repeat scroll 0 0 black;
+	top: 0; left : 0; opacity : 0.5; overflow : hidden;
+	position: absolute;
+	overflow: hidden;
+	opacity: 0.5;
+	left: 0;
+}
+
+.ContentImg {
+	background: none repeat scroll 0 0 white;
+	padding: 10px;
+	position: absolute;
+	z-index: 500000;
 }
