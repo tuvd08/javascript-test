@@ -28,3 +28,34 @@ body,html {
 	position: absolute;
 	bottom: 10px;
 }
+
+.CalendarIcons {
+	background: url("icons/CalendarIcons.gif") no-repeat left center;
+	float: left;
+	height: 16px;
+	margin-left: 5px;
+	width: 16px;
+}
+
+.UIFormGrid {
+	margin: auto;
+}
+
+.UIFormGrid td.FieldLabel {
+	padding: 4px;
+	text-align: right;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.UIFormGrid td.FieldComponent {
+	padding: 4px;
+}
+
+*+html .UIFormGrid td.FieldComponent {
+	padding: 2px 0 4px 4px;
+}
+
+.UIFormGrid .DateTimeInput {
+	float: left;
+}

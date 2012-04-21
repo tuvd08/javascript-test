@@ -1,0 +1,229 @@
+#UICalendarControlIFrame {
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.UICalendarComponent {
+	background-color: #FFFFFF;
+	display: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 225px;
+}
+
+.BlockCalendar {
+	background: url("background/WidgetDragArea2x2.gif") repeat scroll 0 0 #E0E5F7;
+	cursor: move;
+	padding-top: 12px;
+}
+
+.UICalendar {
+	background: url("background/CalendarDecorator.gif") repeat-x scroll left -122px #E0E5F7;
+	border: 1px solid #CCCED7;
+	cursor: default;
+	font: 12px verdana;
+	padding: 7px 5px;
+	text-align: center;
+}
+
+.UICalendar table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.UICalendar a {
+	color: #000000;
+	display: block;
+	font-weight: normal;
+	height: 100%;
+	text-decoration: none;
+}
+
+.UICalendar .MonthYearBox {
+	border: 1px solid #D4D4D4;
+	color: #0960C1;
+	font: bold 11px/18px tahoma;
+}
+
+.UICalendar .MonthYearBox .NextMonth {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll center -41px transparent;
+}
+
+.UICalendar .MonthYearBox .PreviousMonth {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll center -21px transparent;
+}
+
+.UICalendar .MonthYearBox td {
+	background-color: white;
+	padding: 0;
+}
+
+.UICalendar .MonthYearBox a {
+	height: 20px;
+	width: 20px;
+}
+
+.UICalendar .MonthYearBox .MonthButton {
+	border: 1px solid #D4D4D4;
+	width: 20px;
+}
+
+.UICalendar .MonthYearBox .MonthButton a {
+	background-color: #E1DFDF;
+}
+
+.UICalendar .MonthYearBox .MonthButton a:hover {
+	background-color: #EDEDED;
+}
+
+.UICalendar .MonthYearBox .YearButton {
+	width: 20px;
+}
+
+.UICalendar .MonthYearBox a.NextYear {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll center -81px transparent;
+}
+
+.UICalendar .MonthYearBox a.NextYear:hover {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll center -81px transparent;
+}
+
+.UICalendar .MonthYearBox a.PreviousYear {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll center -61px transparent;
+}
+
+.UICalendar .MonthYearBox a.PreviousYear:hover {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll center -61px transparent;
+}
+
+.UICalendar .MonthYearBox .YearButton a:hover {
+	background-color: #EDEDED;
+}
+
+.UICalendar .CalendarGrid {
+	background-color: white;
+	border: 1px solid #CFCFCF;
+	padding: 4px;
+}
+
+.UICalendar .CalendarGrid td {
+	background-color: #F4F4F4;
+	border: 1px solid white;
+}
+
+.UICalendar .CalendarGrid td a,.UICalendar .CalendarGrid td div {
+	padding: 5px 0;
+}
+
+.UICalendar .CalendarGrid td a.Current {
+	background-color: #D9D9D9;
+	color: #058EE6;
+}
+
+.UICalendar .CalendarGrid td a:hover {
+	background-color: #ADBBFF;
+	color: white;
+}
+
+.UICalendar .CalendarTimeBox {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll left top transparent;
+	margin: 5px auto;
+	padding-left: 9px;
+	width: 130px;
+}
+
+.UICalendar .CalendarTimeBoxR {
+	background: url("background/CalendarDecorator.gif") no-repeat scroll right top transparent;
+	padding-right: 9px;
+}
+
+.UICalendar .CalendarTimeBoxM {
+	background: url("background/CalendarDecorator.gif") repeat-x scroll left -101px transparent;
+	height: 21px;
+	line-height: 21px;
+	vertical-align: bottom;
+}
+
+.UICalendar .CalendarTimeBox .CalendarTimeBoxM input.InputTime {
+	border: 0 none;
+	direction: rtl;
+	float: none;
+	padding: 0;
+	width: 15px;
+}
+
+.UIFormColorPicker .UIColorPickerItem {
+	color: black;
+	display: block;
+	padding: 3px 5px;
+	text-decoration: none;
+}
+
+.UIFormColorPicker .UIColorPickerInput {
+	border: 1px solid gray;
+	height: 18px;
+	line-height: 18px;
+	width: 235px;
+}
+
+.UIFormColorPicker .DisplayValue {
+	border: 1px solid #CCCCCC;
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	margin: 1px;
+}
+
+.UIFormColorPicker .UIColorLine {
+	margin: 5px 0;
+}
+
+.UIFormColorPicker a:hover {
+	color: white;
+}
+
+.UIFormColorPicker a:visited {
+	color: black;
+}
+
+.UIFormColorPicker .UIColorPickerLabel {
+	font-family: tahoma;
+	font-size: 11px;
+	margin-left: 16px;
+}
+
+.UIFormColorPicker .CalendarTableColor {
+	background: none repeat scroll 0 0 #E4EAF5;
+	border: 1px solid #CCCCCC;
+	display: none;
+	padding: 2px;
+	position: absolute;
+}
+
+.CalendarTableColor .ColorCell {
+	border: 1px solid #FFFFFF;
+	height: 12px;
+	margin: 2px;
+	width: 12px;
+}
+
+.CalendarTableColor .ColorCell img {
+	height: 12px;
+	width: 12px;
+}
+
+.UIFormColorPicker .SelectedColorCell {
+	background: url("icons/CalendarIcons.gif") no-repeat left center;
+	border: 1px solid red;
+	height: 12px;
+	width: 12px;
+}
+
+.CalendarTableColor a:hover {
+	border: 2px solid red;
+	margin: 1px;
+}

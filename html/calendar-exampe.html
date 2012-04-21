@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+<link href="calendar.css" type="text/css" rel="stylesheet" id="SkinCalendar">
+<script type="text/javascript" src="../libs/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../module/Browser.js"></script>
+<script type="text/javascript" src="../module/date-time-picker.js"></script>
+</head>
+<body>
+  <div class="Copyright">
+    Copyright © 04/2012. All rights reserved.<br /> Other: Vu Duy Tu<br /> Email: duytucntt@gmail.com
+  </div>
+  <div style="padding: 50px">
+    <table class="UIFormGrid">
+      <tbody>
+        <tr>
+          <td class="FieldLabel"><label for="FromDateCreated">Created between</label></td>
+          <td class="FieldComponent FieldCalendar">
+            <div style="float: left;">
+              <input type="text" class="DateTimeInput" name="FromDateCreated" id="FromDateCreated">
+              <div class="CalendarIcons" lang="en" fistweekday="1" format="MM/dd/yyyy" onclick="module.DateTimePicker.init(this,false);" title="Calendar">
+                <span></span>
+              </div>
+            </div>
+            <div style="float: left; padding-left: 5px;">
+              <label for="ToDateCreated">and</label>
+            </div>
+          </td>
+          <td class="FieldComponent FieldCalendar"><input type="text" class="DateTimeInput" name="ToDateCreated" id="ToDateCreated">
+            <div class="CalendarIcons" lang="en" fistweekday="1" format="MM/dd/yyyy" onclick="module.DateTimePicker.init(this,false);" title="Calendar">
+              <span></span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
