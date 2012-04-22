@@ -13,6 +13,10 @@
     Copyright © 04/2012. All rights reserved.<br /> Other: Vu Duy Tu<br /> Email: duytucntt@gmail.com
   </div>
   <div style="padding: 50px">
+    <input type="button" value="English" id="en" name="en"/>
+    <input type="button" value="Vietnamese" id="vi" name="vi"/>
+    <input type="button" value="French" id="fr" name="fr"/>
+    
     <table class="UIFormGrid">
       <tbody>
         <tr>
@@ -37,5 +41,20 @@
       </tbody>
     </table>
   </div>
+  <script type="text/javascript">
+  $('input[name=en]').click(function() {
+    $('div .CalendarIcons').attr('lang', 'en');
+  })
+  $('input[name=vi]').click(function() {
+    $('div .CalendarIcons').attr('lang', 'vi');
+  })
+  $('input[name=fr]').click(function() {
+    $('div .CalendarIcons').attr('lang', 'fr');
+  })
+  $('input[name=de]').click(function() {
+    $('div .CalendarIcons').attr('lang', 'de');
+  })
+
+  </script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+﻿body { width: 960px; font-family: ff-suhmo-web-sc, Georgia, "Times New Roman", Times, serif; }
+/* css common */
+html,body {margin:0 auto; padding: 0;}
+* html .Clearfix { height: 1%; }
+*+html .Clearfix { display: inline-block; }
+.Clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+/*specific styles for score header*/
+#scoreHeader { list-style: none; margin: 0; }
+#scoreHeader li {float: left;}
+#scoreHeader li a { display: block; margin-right: 6px; text-shadow: 0 1px 2px #000000; font-size: 12px; height: 54px; padding-left: 12px; padding-right: 17px; line-height: 18px; color: #e2ded9; text-decoration: none;}
+#scoreHeader .level a { background: url(images/left-right.png) no-repeat right top, url(images/level-left.png) no-repeat left top, url(images/left-middle.png) repeat-x 0 top; }
+#scoreHeader .level img { position: relative; top: 10px; margin-right: 3px; }
+#scoreHeader .level span { position: relative; top: -8px; }
+#scoreHeader .level strong { color: #00c4ff; font: bold 16px ff-suhmo-web, Georgia, "Times New Roman", Times, serif; position: relative; top: 1px; }
+#scoreHeader .rank a { background: url(images/rank-right.png) no-repeat right top, url(images/rank-left.png) no-repeat left top, url(images/rank-middle.png) repeat-x 0 top; }
+#scoreHeader .rank img { margin-left: 3px; margin-right: 8px; position: relative; top: 14px; }
+#scoreHeader .rank span { top: 1px; position: relative; }
+#scoreHeader .rank strong { color: #ffba69; font: bold 16px/16px ff-suhmo-web, Georgia, "Times New Roman", Times, serif; position: relative; top: 1px; }
+#scoreHeader .shillings a { background: url(images/shillings-right.png) no-repeat right top, url(images/shillings-left.png) no-repeat left top, url(images/shillings-middle.png) repeat-x 0 top; padding-left: 30px; padding-top: 0 !important; padding-right: 7px; font-weight: bold;  }
+#scoreHeader .shilling a { background: url(images/shillings-right.png) no-repeat right top, url(images/shillings-left.png) no-repeat left top, url(images/shillings-middl.png) repeat-x 0 top; padding-left: 30px; padding-top: 7px; padding-right: 7px; font-weight: bold; }
+#scoreHeader .shillings img { margin-left: 3px; margin-top: 1px; margin-right: 8px; }
+#scoreHeader .shilling img { margin-left: 3px; margin-top: 1px; margin-right: 8px; }
+.gecko #scoreHeader .shillings span { border-left: 1px solid #555555; }
+.counter_character { display: inline; float: left; position: relative; border-right: 1px solid #000000; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5) inset; border-left: 1px solid #555555; background-color: rgba(0, 0, 0, 0.1); }
+.counter_character_left { margin-left: 0px; }
+.counter_character_inner { }
+.counter_character_right { margin-left: 1px; margin-right: 0px; }
+.counter_marker { position: relative; z-index: 10; background:none !important; background-position: 0px 34px; }
+
+.shine_container {
+	position: relative;
+}
+
+.shine_container .thumb_shine {
+	background: url("images/shine.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 4px;
+	left: 30px;
+	right: 12px;
+	height: 31px;
+	border-radius: 0 6px 6px 0;
+}
+
+.shine_image .thumb_shine {
+	left: 7px;
+}
+
+.shine_container .child_thumb_shine {
+	background: url("images/shine-child.png");
+	background-repeat: no-repeat;
+	top: 35px;
+	height: 12px;
+	width: 44px;
+	border-radius: 0 0 13px 0;
+}

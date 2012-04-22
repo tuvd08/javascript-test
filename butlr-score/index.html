@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="css/score-header.css">
+<script type="text/javascript" src="js/preview.js"></script>
+<script type="text/javascript" src="js/counter_mini.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+</head>
+<body>
+<ul id="scoreHeader" class="Clearfix">
+<li class="level shine_container shine_image">
+  <a href="#">
+    <img src="css/images/ClassIcon_32_Baron.png" width="31" height="32" alt="Baron"/> 
+    <span>Level: <strong>1</strong> | Baron Moly</span>
+    <div class="thumb_shine"><span></span></div>
+    <div class="thumb_shine child_thumb_shine"><span></span></div>
+  </a>
+</li>
+<li class="rank shine_container shine_image">
+  <a href="#">
+    <img src="css/images/rank-icon.png" width="23" height="23" alt="Rank Icon"><span>Rank:  <strong>#14,335</strong></span>
+    <div class="thumb_shine"></div>
+    <div class="thumb_shine child_thumb_shine"><span></span></div>
+  </a>
+</li>
+<li id="preview_container" class="shillings shine_container">
+	<a href="#">
+		<div id="preview_container" style="height:30px; overflow:hidden; padding-top:4px;">
+			<div id="preview_item" style="height:30px; overflow:hidden; border-radius:10px;"></div>
+			<div id="preview_custom"></div>
+			<div id="preview_description"></div>
+		</div>
+    <div class="thumb_shine"></div>
+	</a>
+</li>
+<div style="display: none;">
+	<div id="item_0">
+		<div name="counter"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	showItem(0);
+</script>
+</ul>
+
+<script type="text/javascript" src="js/shine.js"></script>
+</body>
+</html>

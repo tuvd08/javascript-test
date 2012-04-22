@@ -60,9 +60,6 @@ var SLIDER = {
     var url = '_.gif';
     for ( var i = 0; i < SLIDER.size; i++) {
       img = SLIDER.createElement('img', 'img'+i, 'ImgThum', url, 'max-width:300px');
-      $(img).load(function() {
-        SLIDER.loadImg(this);
-      });
       SLIDER.imgElm.elm[i] = img;
       SLIDER.imgElm.add[i] = false;
     }
@@ -91,6 +88,9 @@ var SLIDER = {
     for ( var i = from; i < to; i++) {
       if (SLIDER.imgElm.add[i] == false) {
         SLIDER.imgElm.elm[i].src = SLIDER.imgThum[i];
+        $(SLIDER.imgElm.elm[i]).load(function() {
+          SLIDER.loadImg(this);
+        });
         $(SLIDER.imgElm.elm[i]).appendTo($('#id' + i));
         SLIDER.imgElm.add[i] = true;
       }
@@ -129,7 +129,17 @@ var SLIDER = {
       SLIDER.loadFullImg(this);
     });
     $(img).appendTo(cont);
+    SLIDER.loadImgBefore(SLIDER.current);
   },
+  loadImgBefore: function(index) {
+  	var bf = index - 1;
+  	var af = index + 1;
+  	if(bf < 0) bf = SLIDER.size - 1;
+  	if(af == SLIDER.size) af = 0;
+  	$('#hidden').html('');
+  	$(SLIDER.createElement('img', '', '', SLIDER.imgs[af])).appendTo($('#hidden'));
+  	$(SLIDER.createElement('img', '', '', SLIDER.imgs[bf])).appendTo($('#hidden'));
+	},
   loadFullImg: function(img) {
     var layer = $('#showImg');
     var cont = $('#contImg');
@@ -137,7 +147,7 @@ var SLIDER = {
       img.width = (layer.width() - 200) + "px";
     }
     cont.css('left', ((layer.width() - img.width) / 2) + "px");
-    cont.css('top',((layer.height() - (img.height+20))/2)  + "px");
+    cont.css('top',($(window).scrollTop() + (layer.height() - (img.height+20))/2)  + "px");
     cont.css('display','block');
   },
   initLayer: function() {
@@ -160,8 +170,8 @@ var SLIDER = {
   resizeLayer: function() {
     $('#showImg').css({
       display: 'block', 
-      width: $(window).width() + "px", 
-      height:$(window).height() + "px"
+      width: $(top.document).width() + "px", 
+      height:$(top.document).height() + "px"
     });
   },
   fullScreen: function() {
@@ -180,6 +190,8 @@ var SLIDER = {
         wscript.SendKeys("{F11}");
       }
     }
+    $(window).css('overflow', 'hidden');
+    $('html').css('overflow', 'hidden');
   },
   hiddenAll: function() {
     var cancelFullScreen = document.cancelFullScreen ||
@@ -196,6 +208,8 @@ var SLIDER = {
     }
     $('#showImg').css('display','none');
     $('#contImg').css('display','none').html('');
+    $(window).css('overflow', 'auto');
+    $('html').css('overflow', 'auto');
   }
 };
 
@@ -256,6 +270,7 @@ $(window).resize(function() {
 });
 
 $(document).ready(SLIDER.init());
+$(document).ready(SLIDER.loadImgBefore(1));
 //$(window).scroll(SLIDER.setFromTo());
 var t=0;
 (function A() {

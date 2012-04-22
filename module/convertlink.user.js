@@ -1,8 +1,8 @@
 // ==UserScript==
-// @Author         Vu Duy Tu
-// @name           Set link HTML by key 'evernote'
-// @description    Automate replace text content 'evernote:///' by HTML link.
-// @version        0.2
+// @Author Vu Duy Tu
+// @name Set link HTML by key 'evernote'
+// @description Automate replace text content 'evernote:///' by HTML link.
+// @version 0.2
 //
 // ==/UserScript==
 
@@ -17,9 +17,11 @@ var ReplaceLink = {
 		var textCt = "";
 		for ( var i = 0; i < all.length; ++i) {
 			elm = all[i];
-			textCt = String(elm.textContent);
-			if (textCt && textCt.length > 0 && textCt.indexOf('evernote:') >= 0) {
-				elm.innerHTML = ReplaceLink.replaceHTMLLinks(textCt);
+			if (elm.firstChild) {
+				textCt = String(elm.firstChild.nodeValue);
+				if (textCt && textCt.length > 0 && textCt.indexOf('evernote:') >= 0) {
+					elm.innerHTML = ReplaceLink.replaceHTMLLinks(textCt);
+				}
 			}
 		}
 	}
