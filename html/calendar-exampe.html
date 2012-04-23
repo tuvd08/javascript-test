@@ -44,17 +44,22 @@
   <script type="text/javascript">
   $('input[name=en]').click(function() {
     $('div .CalendarIcons').attr('lang', 'en');
+    module.DateTimePicker.setLang('en');
   })
   $('input[name=vi]').click(function() {
     $('div .CalendarIcons').attr('lang', 'vi');
+    module.DateTimePicker.setLang('vi');
   })
   $('input[name=fr]').click(function() {
     $('div .CalendarIcons').attr('lang', 'fr');
+    module.DateTimePicker.setLang('fr');
   })
   $('input[name=de]').click(function() {
     $('div .CalendarIcons').attr('lang', 'de');
+    module.DateTimePicker.setLang('de');
   })
 
+  $(document.body).css('overflow', 'hidden');
   </script>
 </body>
 </html>

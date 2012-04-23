@@ -689,6 +689,23 @@ Browser.prototype.fillUpFreeSpace = function(elemt) {
     elemt.style.height = height + "px";
   }
 };
+
+//type GET, POST
+Browser.prototype.ajaxAsyncGetContent = function(url, callback) {
+  var request = eXo.core.Browser.createHttpRequest();
+  request.onreadystatechange = function() {
+    if(callback) {
+      if (request.status == 404) {
+        callback("urlError");
+      }
+      if (request.readyState == 4 && (request.status == 200 || request.status == 204)) {
+        callback(request.responseText);
+      }
+    }
+  };
+  request.open('GET', url, true);
+  request.send();
+};
 /** ********************************************************************************* */
 eXo.core.Browser = new Browser();
 eXo.core.Mouse = new MouseObject();
