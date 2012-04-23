@@ -1,61 +1,64 @@
 body,html {
-	padding: 0px;
-	margin: 0px;
-	font-family: Ubuntu, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11pt;
+  padding: 0px;
+  margin: 0px;
+  font-family: Ubuntu, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11pt;
 }
 
 * html .Clearfix {
-	height: 1%; /* IE5-6 */
+  height: 1%; /* IE5-6 */
 }
 
 *+html .Clearfix {
-	display: inline-block; /* IE7not8 */
+  display: inline-block; /* IE7not8 */
+}
+
+#hidden {
+  display: none;  
 }
 
 .Clearfix:after { /* FF, IE8, O, S, etc. */
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 .Copyright {
-	width: 100%;
-	overflow: hidden;
-	text-align: center;
-	position: absolute;
-	bottom: 10px;
-}
-
-.CalendarIcons {
-	background: url("icons/CalendarIcons.gif") no-repeat left center;
-	float: left;
-	height: 16px;
-	margin-left: 5px;
-	width: 16px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  display: none;
+}.CalendarIcons {
+  background: url("icons/CalendarIcons.gif") no-repeat left center;
+  float: left;
+  height: 16px;
+  margin-left: 5px;
+  width: 16px;
 }
 
 .UIFormGrid {
-	margin: auto;
+  margin: auto;
 }
 
 .UIFormGrid td.FieldLabel {
-	padding: 4px;
-	text-align: right;
-	vertical-align: top;
-	white-space: nowrap;
+  padding: 4px;
+  text-align: right;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
 .UIFormGrid td.FieldComponent {
-	padding: 4px;
+  padding: 4px;
 }
 
 *+html .UIFormGrid td.FieldComponent {
-	padding: 2px 0 4px 4px;
+  padding: 2px 0 4px 4px;
 }
 
 .UIFormGrid .DateTimeInput {
-	float: left;
+  float: left;
 }
