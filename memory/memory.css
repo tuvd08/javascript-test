@@ -1,0 +1,55 @@
+#memory-div {
+	margin: 0 auto;
+	width: 454px;
+	text-align: center;
+}
+
+#memory,#memory tr,#memory td,#memory a,#memory img {
+	padding: 0;
+	margin: 0;
+}
+
+#memory td {
+	border: 0;
+	text-align: center;
+}
+
+#memory img {
+	width: 112px;
+	height: 112px;
+	border: 0;
+	margin-bottom: -4px;
+}
+
+#extend {
+	margin-top: 10px;
+}
+
+.memorybutton {
+	background: url("background/blue-button.png") repeat-x scroll left top transparent;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 1px 1px 2px #888888;
+	color: #FFFFFF;
+	display: inline-block;
+	font-family: "Helvetica", arial, tahoma, Sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 22px;
+	height: 24px;
+	padding: 0px 10px;
+	text-shadow: 1px 1px 1px #888888;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.timer {
+	background: url("background/gray-button.png") repeat-x scroll left top transparent;
+	color: black;	
+	line-height: 24px;
+}
+
+.reset {
+	background: url("background/ov-button.png") repeat-x scroll left top transparent;	
+}
+
+
