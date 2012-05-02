@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game</title>
+
+	<link rel="stylesheet" href="memory.css">
+</head>
+<body>
+	<div id="memory-div">
+		<div class="memorybutton" id="memorybutton">Play game...</div>
+		<table id="memory">
+			<tr>
+				<td><img src="imgs/blank.png" id="img0" alt=""></td>
+				<td><img src="imgs/blank.png" id="img1" alt=""></td>
+				<td><img src="imgs/blank.png" id="img2" alt=""></td>
+				<td><img src="imgs/blank.png" id="img3" alt=""></td>
+			</tr>
+			<tr>
+				<td><img src="imgs/blank.png" id="img4" alt=""></td>
+				<td><img src="imgs/blank.png" id="img5" alt=""></td>
+				<td><img src="imgs/blank.png" id="img6" alt=""></td>
+				<td><img src="imgs/blank.png" id="img7" alt=""></td>
+			</tr>
+			<tr>
+				<td><img src="imgs/blank.png" id="img8" alt=""></td>
+				<td><img src="imgs/blank.png" id="img9" alt=""></td>
+				<td><img src="imgs/blank.png" id="img10" alt=""></td>
+				<td><img src="imgs/blank.png" id="img11" alt=""></td>
+			</tr>
+			<tr>
+				<td><img src="imgs/blank.png" id="img12" alt=""></td>
+				<td><img src="imgs/blank.png" id="img13" alt=""></td>
+				<td><img src="imgs/blank.png" id="img14" alt=""></td>
+				<td><img src="imgs/blank.png" id="img15" alt=""></td>
+			</tr>
+		</table>
+		<input id="extend" value="Shuffle Images" type="button"/>
+
+	</div>
+	
+	<script type="text/javascript">
+	//Get from AJAX request or can push manual or by logic php/java code
+	var extend = [
+		'http://www.newmeaccelerator.com/wp-content/uploads/2011/11/HP-Logo-120.png',
+		'https://encrypted-tbn0.google.com/images?q=tbn:ANd9GcSZiuMB3UzRjoy6yemcyzVdMzAY2wuK0cwgiia55mJCqSnskhMj',
+		'http://creativemint.com/public/uploads/slides/Wilson_Sonsini_Goodrich_Rosati.gif',
+		'http://www.crunchbase.com/assets/images/resized/0002/7416/27416v1-max-250x250.png',
+		'http://social-networking.findthebest.com/sites/default/files/180/media/images/Tagged.jpg',
+		'http://hubbayarea.files.wordpress.com/2009/11/hub-bay-area-logo-125x125mm1.png?w=200&h=200',
+		'imgs/horowitz.png',
+		'imgs/google.png',
+		'imgs/0.jpg'
+	];
+	</script>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/memory.js"></script>
+</body>
+</html>
