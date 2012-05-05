@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css">
+<script type="text/javascript" src="../libs/jquery-1.4.4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<style>
+#container {
+	position: relative;
+}
+
+#results0 {
+	position: absolute;
+}
+
+#results0 {
+	z-index: 1;
+}
+
+div {
+	-khtml-opacity: 1.0;
+	-moz-opacity: 1.0;
+	-ms-filter: lpha(opacity =   1) filter:alpha(opacity =   1);
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=1.0 );
+	opacity: 1.0;
+}
+
+.ui-datepicker {
+	width: 12em;
+	padding: .2em .2em 0;
+	display: none;
+}
+
+.ui-datepicker table {
+	width: 100%;
+	font-size: .7em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+
+.styled-button-1 {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 0px 0px;
+	background-color: #FA2;
+	border-radius: 5px;
+	border-bottom-color: #333;
+	border: none;
+	border-width: 0;
+	box-shadow: rgba(0, 0, 0, 0.199219) 1px 1px 1px 1px;
+	color: #333;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	height: 20px;
+	padding: 4px 4px;
+	text-shadow: #FE6 0px 1px 0px;
+}
+</style>
+<script>
+  jQuery(function() {
+    jQuery('#AD').datepicker({
+      numberOfMonths : 1,
+      beforeShow : function() {
+        jQuery('#ui-datepicker').topZIndex();
+      },
+      beforeShowDay : adrule,
+      onSelect : function(dateText, inst) {
+        var startDate = new Date(dateText);
+        var today = new Date();
+        dateoffset = today.getMonth() - startDate.getMonth();
+        jQuery('#ui-datepicker').topZIndex();
+        jQuery("#DD").datepicker('option', 'showCurrentAtPos', dateoffset);
+        jQuery("#DD").val("MM/DD/YYYY");
+        
+      }
+    
+    });
+    
+    jQuery("#DD").datepicker({
+      beforeShowDay : ddrule
+    });
+    
+    jQuery("#AD").val("MM/DD/YYYY");
+    jQuery("#DD").val("MM/DD/YYYY");
+    
+    jQuery('#container').delegate('button', 'click', (function() {
+      //var stuff =$(this).data('da');
+      //alert(stuff);
+      //  alert ('res_id ' + $(this).data('id'));
+      var res_id = $(this).data('id');
+      if (res_id == 0) {
+        location.reload();
+        return;
+      }
+      var cturl = 'http://www.clicktripz.com/click.php?rooms=1&publisherID=4&city=Orlando';
+      var arrival = jQuery("#AD").val();
+      var departure = jQuery("#DD").val();
+      var adults = jQuery("#adults").val();
+      var children = jQuery("#children").val();
+      var guests = adults + children;
+      
+      cturl = cturl + '&checkInDate=' + arrival;
+      cturl = cturl + '&checkOutDate=' + departure;
+      cturl = cturl + '&guests=' + guests;
+      cturl = cturl + '&advertiserID=' + res_id;
+      //jQuery("#results1").hide("fast");
+      if ($(this).data('loaded') == 0) {
+        //    alert(cturl);  
+        jQuery("#someFrame_" + res_id).attr("src", cturl);
+        $(this).data('loaded', '1');
+        jQuery('#blackout').topZIndex();
+      }
+      
+      jQuery('#results' + res_id).topZIndex();
+      jQuery('#ui-datepicker-div').topZIndex();
+    }))
+
+  })
+  function adrule(date) {
+    var today = new Date();
+    if (date < today)
+      return [ false, "", "Past" ];
+    else
+      return [ true ];
+  }
+  
+  function ddrule(date) {
+    var addate = new Date(jQuery("#AD").val());
+    if (addate == "Invalid Date")
+      return [ false, "", "Please correct the Check In Date " ];
+    
+    if (date < addate)
+      return [ false ];
+    else
+      return [ true ];
+  }
+  function doSearch() {
+    //  alert('in doSearch');
+    $('#buttons').html('');
+    jQuery('input[type=checkbox]')
+        .each(
+            function() {
+              if (this.checked) {
+                var check_id = $(this).data('aid');
+                var check_name = $(this).data('aname');
+                var new_btn = $('<button class="styled-button-1" id="'+ check_id+'" data-id="'+ check_id+'" data-loaded="0" >' + check_name + '</button>');
+                //new_btn.insertAfter('#buttons');
+                $('#buttons').append(new_btn);
+                //       alert(check_id); 
+                var newresults = $('<div style="position: absolute;opacity:1.0" id="results'+ check_id+'"><iframe name="someFrame" id="someFrame_'+ check_id+'" width="320" height="375" frameBorder="0" ></iframe></div>');
+                $('#container').append(newresults);
+                
+              }
+            });
+    
+  }
+  
+  $.topZIndex = function(selector) {
+    /// <summary>
+    ///   Returns the highest (top-most) zIndex in the document
+    ///   (minimum value returned: 0).
+    /// </summary>  
+    /// <param name="selector" type="String" optional="true">
+    ///   (optional, default = "*") jQuery selector specifying
+    ///   the elements to use for calculating the highest zIndex.
+    /// </param>
+    /// <returns type="Number">
+    ///   The minimum number returned is 0 (zero).
+    /// </returns>
+    
+    return Math.max(0, Math.max.apply(null, $.map(((selector || "*") === "*") ? $.makeArray(document.getElementsByTagName("*")) : $(selector), function(v) {
+      return parseFloat($(v).css("z-index")) || null;
+    })));
+  };
+  
+  $.fn.topZIndex = function(opt) {
+    /// <summary>
+    ///   Increments the CSS z-index of each element in the matched set
+    ///   to a value larger than the highest current zIndex in the document.
+    ///   (i.e., brings all elements in the matched set to the top of the
+    ///   z-index order.)
+    /// </summary>  
+    /// <param name="opt" type="Object" optional="true">
+    ///   (optional) Options, with the following possible values:
+    ///   increment: (Number, default = 1) increment value added to the
+    ///     highest z-index number to bring an element to the top.
+    ///   selector: (String, default = "*") jQuery selector specifying
+    ///     the elements to use for calculating the highest zIndex.
+    /// </param>
+    /// <returns type="jQuery" />
+    
+    // Do nothing if matched set is empty
+    if (this.length === 0) {
+      return this;
+    }
+    
+    opt = $.extend({
+      increment : 1
+    }, opt);
+    
+    // Get the highest current z-index value
+    var zmax = $.topZIndex(opt.selector), inc = opt.increment;
+    
+    // Increment the z-index of each element in the matched set to the next highest number
+    return this.each(function() {
+      this.style.zIndex = (zmax += inc);
+    });
+  };
+  
+  function largestZindex(element) {
+    var allObjects = $(element);
+    var allObjectsArray = $.makeArray(allObjects);
+    var zIndexArray = [ 0 ];
+    var largestZindex = 0;
+    for ( var i = 0; i < allObjectsArray.length; i++) {
+      var zIndex = $(allObjectsArray[i]).css('z-index');
+      zIndexArray.push(zIndex);
+    }
+    var largestZindex = Math.max.apply(Math, zIndexArray);
+    return largestZindex;
+  };
+</script>
+</head>
+<body>
+  <div id="container">
+    <button class="styled-button-1" id="homesearch" value="Change Search" data-id="0" data-loaded="1">Change Search</button>
+    <div id="buttons"></div>
+    <div id="results0" style="width: 320px; background-color: #FFFFFF;">
+      <table id="table364" border="0" width="320" background="http://www.0rland0.com/images/0rland0appbghotels.jpg" height="400">
+        <tr>
+          <td valign="top">
+            <table id="table365" border="0" cellspacing="5" width="100%">
+              <tr>
+                <td>&nbsp;
+                  <p>
+                    <br>
+                  </p>
+                  <div align="center">
+                    <table id="table366" border="0" cellpadding="2" width="95%">
+                      <tr>
+                        <td width="25%"><b><font size="2" face="Arial">Check In:</font> </b><font size="2"><span style="FONT-SIZE: 9pt"><font color="#ffffff"
+                              size="3" face="Arial"><input id="AD" size="10" type="text" name="arrival_date"> </font><font size="3" face="Arial"><br> </font> </span> </font><b><font
+                            size="2" face="Arial">Check Out: </font> </b><font size="2"><span style="FONT-SIZE: 9pt"><font color="#ffffff" size="3"><input id="DD"
+                                size="10" type="text" name="departure_date"> </font> </span> </font><b><font size="2" face="Arial"> <br> </font> </b></td>
+                      </tr>
+                      <tr>
+                        <td width="25%"><b><font size="2" face="Arial">Adults: </font> </b><font size="2"><span style="FONT-SIZE: 9pt"><font color="#ffffff"
+                              size="4" face="Arial"><select style="FONT-WEIGHT: 700" id="adults" name="adults">
+                                  <option value="1">1</option>
+                                  <option selected="" value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                              </select> </font> </span> </font><b><font size="2" face="Arial">Kids:</font> </b><font size="2"> <span style="FONT-SIZE: 9pt"><font color="#ffffff" size="4"><select
+                                style="FONT-WEIGHT: 700" id="children" name="children">
+                                  <option selected="" value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                              </select> </font> </span> </font></td>
+                      </tr>
+                      <tr>
+                        <td><img border="0" onclick="doSearch();" hspace="0" align="left" src="http://www.0rland0.com/images/finddealsblue.png" width="200" height="39"
+                          name="I1"></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table id="table367" border="0" width="100%">
+                            <tr>
+                              <td><input value="ON" type="checkbox" name="C1" data-aid="9" data-aname="Expedia"></td>
+                              <td><img border="0" src="http://www.0rland0.com/images/app/expedia_new-100x30.jpg" width="100" height="30"></td>
+                              <td><input value="ON" type="checkbox" name="C2" data-aid="12" data-aname="Hotel Planner"></td>
+                              <td><img border="0" src="http://www.0rland0.com/images/app/HotelPlanner-100x30.jpg" width="100" height="30"></td>
+                            </tr>
+                            <tr>
+                              <td><input value="ON" type="checkbox" name="C3" data-aid="2" data-aname="Orbitz"></td>
+                              <td><img border="0" src="http://www.0rland0.com/images/app/orbitz-hotel-100x30.jpg" width="100" height="30"></td>
+                              <td><input value="ON" type="checkbox" name="C4" data-aid="1" data-aname="Kayak"></td>
+                              <td><img border="0" src="http://www.0rland0.com/images/app/kayak-100x30.jpg" width="100" height="30"></td>
+                            </tr>
+                            <tr>
+                              <td><input value="ON" type="checkbox" name="C5" data-aid="4" data-aname="Priceline"></td>
+                              <td><img border="0" src="http://www.0rland0.com/images/app/otel-100x30.jpg" width="100" height="30"></td>
+                              <td><input value="ON" type="checkbox" name="C6" data-aid="17" data-aname="Hotels Combined"></td>
+                              <td><img border="0" src="http://www.0rland0.com/images/app/Airbnb-100x30.jpg" width="100" height="30"></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="blackout" style="width: 320px; position: absolute; opacity: 1.0 background-color:   #000000;"></div>
+  </div>
+</body>
+</html>

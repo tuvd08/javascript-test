@@ -62,3 +62,63 @@ body,html {
 .UIFormGrid .DateTimeInput {
   float: left;
 }
+
+.BODY-POPUP {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.Banner {
+	border: solid 1px blue;
+	height: 80px;
+	font-size: 30px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.Popup {
+	border: solid 1px gray;
+	height: 35px;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+	background: #c7c7c7;
+}
+
+#Popup {
+	display: none;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	top: 0px;
+}
+
+.MainBody {
+	border: solid 1px blue;
+	height: 850px;
+	padding: 10px;
+}
+
+.searchbox-input {
+	color: rgb(170, 170, 170);
+	border: solid 1px rgb(82, 81, 105);
+	width: 330px;
+	padding: 4px;
+	border: 1px solid #525169;
+	height: 18px;
+	height: 18px 9;
+	_height: 18px;
+	font-size: 14px;
+	position: relative;
+	margin-right: -20px;
+	top: -9px;
+	top: -6px 9;
+	_top: -2px;
+	display: inline;
+	margin-left: 0px !important;
+}
+
+.searchbutton {
+	position: relative !important;
+	z-index: 5 !important;
+}
