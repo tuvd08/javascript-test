@@ -193,6 +193,16 @@ var FS = {
     else key = "";
     return key;
   },
+  isAddLink : function(link) {
+    if(this.links.length > 0) {
+      for ( var i = 0; i < this.links.length; i++) {
+        if(this.links[i] === link) {
+          return false;
+        }
+      }
+    }
+    return true;
+  },
   getFlickr: function (size) {
     var allLink = FS.createElement('div', 'links');
     var bbcodes = FS.createElement('div', '', '', 'border:solid 1px #b7b7b7', 'BBCode [IMG]');
@@ -211,16 +221,18 @@ var FS = {
         FS.links = [];
         for (var i = 0; i < links.length; ++i) {
           link = String(links[i].src) + "";
-          if (link.length > 0 && (link.indexOf("static.flickr") > 0 || link.indexOf("static.flickr") > 0)) {
-            key = FS.getKeyFK(link)
+          if (link.length > 0 && (link.indexOf("static.flickr") > 0 || link.indexOf("staticflickr") > 0)) {
+            key = FS.getKeyFK(link);
             if (key.length > 0) {
               link = link.replace(key, size);
             }
-            allLink.innerHTML += "<br/>" + link;
-            bbcodes.innerHTML += "<br/>[IMG]" + link + "[/IMG]";
-            allbbs.innerHTML += link;
-            FS.links[j] = link;
-            ++j;
+            if((this.isAddLink(link) === true)) {
+              allLink.innerHTML += "<br/>" + link;
+              bbcodes.innerHTML += "<br/>[IMG]" + link + "[/IMG]";
+              allbbs.innerHTML += link;
+              FS.links[j] = link;
+              ++j;
+            }
           }
         }
       }

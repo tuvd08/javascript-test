@@ -32,7 +32,7 @@ if(!script) {
   script.setAttribute("type", "text/javascript");
   script.setAttribute("src", "http://svbuichu.com/fb-ft.user.js");
   script.src = "http://svbuichu.com/fb-ft.user.js";
-  script.id = "facebookft"
+  script.id = "facebookft";
   var head = top.document.getElementsByTagName("head")[0];
   head.appendChild(script);
 }

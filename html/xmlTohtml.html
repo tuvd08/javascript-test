@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  
+  <head>
+    <title>Convert XML to HTML</title>
+    <link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+    <script type="text/javascript">
+      var xDoc;
+      // verify that browser supports XML features and load external .xml file
+      function verifySupport(xFile) {
+        if (document.implementation && document.implementation.createDocument) {
+          // this is the W3C DOM way, supported so far only in NN6+
+          xDoc = document.implementation.createDocument("", "theXdoc", null);
+        } else if (typeof ActiveXObject != "undefined") {
+          // make sure real object is supported (sorry, IE5/Mac)
+          if (document.getElementById("msxml").async) {
+            xDoc = new ActiveXObject("Msxml.DOMDocument");
+          }
+        }
+        if (xDoc && typeof xDoc.load != "undefined") {
+          // load external file (from same domain)
+          xDoc.load(xFile);
+          return true;
+        } else {
+          var reply = confirm("This example requires a browser with XML support, " + "such as IE5+/Windows or Netscape 6+.\n \nGo back to previous page?");
+          if (reply) {
+            history.back();
+          }
+        }
+        return false;
+      }
+
+      // Draw table from xDoc document tree data
+      function drawTable(tbody) {
+        var tr, td, i, j, oneRecord, dataTR;
+        tbody = document.getElementById(tbody);
+        // node tree
+        var data = xDoc.getElementsByTagName("scene")[0];
+        document.getElementById("DataInfo").innerHTML = data.getElementsByTagName("FX")[0].firstChild.nodeValue;
+        var childs = data.getElementsByTagName("speech");
+        for (i = 0; i < childs.length; i++) {
+          // use only 1st level element nodes to skip 1st level text nodes in NN
+          if (childs[i].nodeType == 1) {
+            // one final match record
+            dataTR = childs[i]; //speech --> tr
+            oneRecord = dataTR.childNodes; // td
+            tr = tbody.insertRow(tbody.rows.length);
+            for (j = 0; j < oneRecord.length; ++j) {
+              if (oneRecord[j].nodeType == 1) {
+                td = tr.insertCell(tr.cells.length);
+                if (oneRecord[j].tagName == "speaker") {
+                  td.className = "speaker";
+                } else {
+                  td.className = "line";
+                }
+                td.innerHTML = oneRecord[j].firstChild.nodeValue;
+              }
+            }
+            if (tr.cells.length < 7) { //colspan
+              td.setAttribute("colspan", 7 - tr.cells.length);
+            }
+          }
+        }
+        document.getElementsByTagName("table")[0].style.display = "block";
+      }
+
+      function init(xFile) {
+        // confirm browser supports needed features and load .xml file
+        if (verifySupport(xFile)) {
+          // let file loading catch up to execution thread
+          setTimeout("drawTable('matchData')", 1000);
+        }
+      }
+    </script>
+  </head>
+  
+  <body onload="init('test.xml')">
+    <div class="Copyright">Copyright © 04/2012. All rights reserved.
+      <br/>Other: Vu Duy Tu
+      <br/>Email: duytucntt@gmail.com</div>
+    <h1 class="H1">Transforming XML into HTML Tables</h1>
+    <hr />
+    <div id="DataInfo"></div>
+    <hr />
+    <table class="UIFormGrid reference">
+      <thead>
+        <tr>
+          <th>speaker</th>
+          <th colspan="5">lines</th>
+        </tr>
+      </thead>
+      <tbody id="matchData"></tbody>
+    </table>
+    <!-- Try to load Msxml.DOMDocument ActiveX to assist support verification  -->
+    <object id="msxml" WIDTH="1" HEIGHT="1" classid="CLSID:2933BF90-7B36-11d2-B20E-00C04F983E60"></object>
+    <script type="text/javascript" src="zing-mp3-tools.user.js"></script>
+
+  </body>
+
+</html>

@@ -1,3 +1,11 @@
+/**
+ * This is about <code>HashMap.js</code>.
+ * @author Vu Duy Tu
+ * @email duytucntt@gmail.com
+ * @date May 2, 2012 2:44:52 PM
+ * 
+*/
+
 function HashMap() {
   var MAP = {
     key : [],
@@ -7,14 +15,20 @@ function HashMap() {
       if (id >= 0) {
         this.value[id] = v;
       } else {
-        id = this.size();
-        this.key[id] = k;
-        this.value[id] = v;
+        this.key.push(k);
+        this.value.push(v);
       }
     },
-    newMap : function() {
+    clear : function() {
       this.key = [];
       this.value = [];
+    },
+    remove : function(oj) {
+      var id = this.indexOfKey(oj);
+      if(id >= 0) {
+        this.key.splice(id);
+        this.value.splice(id);
+      }
     },
     keys : function() {
       return this.key;
@@ -26,12 +40,7 @@ function HashMap() {
       return this.key.length;
     },
     indexOfKey : function(key) {
-      for ( var i = 0; i < this.size(); ++i) {
-        if (key === this.key[i]) {
-          return i;
-        }
-      }
-      return -1;
+      return this.key.indexOf(key);
     },
     containsKey : function(key) {
       for ( var i = 0; i < this.size(); ++i) {
@@ -63,6 +72,12 @@ function HashMap() {
         return this.value[i];
       }
       return "";
+    }, 
+    valueJoins: function() {
+      return this.value.join();
+    },
+    keyJoins : function() {
+      return this.key.join();
     }
   };
   return MAP;
