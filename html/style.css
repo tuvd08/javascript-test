@@ -32,7 +32,9 @@ body,html {
   position: absolute;
   bottom: 10px;
   display: none;
-}.CalendarIcons {
+}
+
+.CalendarIcons {
   background: url("icons/CalendarIcons.gif") no-repeat left center;
   float: left;
   height: 16px;
