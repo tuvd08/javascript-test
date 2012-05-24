@@ -9,7 +9,7 @@
 
 var TestQuery = {
   hasqr : function() {
-    if (typeof window.$ === 'function') {
+    if (typeof window.jQuery === 'function') {
       return true;
     } else {
       return false;
@@ -22,7 +22,7 @@ var TestQuery = {
       var scrs = $('script[src^=' + url + ']');
       isAdd = (typeof scrs === 'undefined' || scrs.length <= 0);
     } else {
-      var scripts = top.document.getElementsByTagName('script');
+      var scripts = document.getElementsByTagName('script');
       for ( var i = 0; i < scripts.length; i++) {
         if (String(scripts[i].src).indexOf(url) >= 0) {
           isAdd = false;
@@ -31,10 +31,10 @@ var TestQuery = {
     }
     
     if (isAdd) {
-      var scrElm = top.document.createElement('script');
+      var scrElm = document.createElement('script');
       scrElm.type = 'text/javascript';
       scrElm.src = url;
-      var head = top.document.head;
+      var head = document.head;
       if (isFirst) {
         head.insertBefore(scrElm, head.firstChild);
       } else {

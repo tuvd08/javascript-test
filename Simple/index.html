@@ -1,0 +1,65 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title></title>
+
+	<script type="text/javascript">
+	var LINE = "line";
+	var SIZE = 37;
+	function SplitBy(type, value) {
+		var arr = [];
+		if(type == LINE) {
+			arr = value.split('\n');
+		} else {
+			var t = value.length;
+			var i = 0;
+			value = value.replace( /\n/ig, ' ');
+			while(t > 0) {
+				if(t > SIZE) {
+					arr[i] = value.substring(0, SIZE);
+					value = value.substring(SIZE);
+					t = value.length;
+					++i;
+				} else {
+					arr[i] = value;
+					t = 0;
+				}
+			}
+		}
+		return arr;
+	}
+	function ParceData(type) {
+		var form = document.forms["msgtch"];
+		var datas = String(form["textarea"].value);
+		var arr = SplitBy(type, datas);
+		var nArr = ['one', 'two', 'three', 'four', 'five'];
+		for ( var i = 0; i < 5; i++) {
+			if(i < arr.length) {
+				form[nArr[i]].value = arr[i];
+			} else {
+				form[nArr[i]].value = "";
+			}
+		}
+	}
+	</script>
+
+</head>
+
+<body>
+
+<form name="msgtch" method="GET" action="http://www.conterio.com/newsletter/wholesale1/sendone.asp" style="border-style:solid; border-width:0px; padding:0; ">
+	<p align="center"><u><font size="4"><b>I need the text field data below to be 
+	parced, each line into the corresponding input fields below </b></font></u></p>
+	<p align="center"><textarea rows="16" name="textarea" cols="37"></textarea></p>
+	<p align="center">&nbsp;</p>
+	<p align="center">
+		<input value="Parce Button Runs Script By Line" title="One line for one input" name="Parce" type="button" onclick="ParceData('line')">
+		<input value="Parce Button Runs Script By Size" title="Size of one input is 37 characters" name="Parce" type="button" onclick="ParceData('size')">
+	</p>
+	<p align="center"><input name="one" size="41" type="text"></p>
+	<p align="center"><input name="two" size="41" type="text"></p>
+	<p align="center"><input name="three" size="41" type="text"></p>
+	<p align="center"><input name="four" size="41" type="text"></p>
+	<p align="center"><input name="five" size="41" type="text"></p>
+</form>
+
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <!-- BC_OBNW -->
+<head>
+<title>Calculator</title>
+<link href="http://lindsays.businesscatalyst.com/StyleSheets/ModuleStyleSheets.css" type="text/css" rel="StyleSheet" />
+<script type="text/javascript">var jslang='EN';</script>
+<link rel="stylesheet" href="http://lindsays.businesscatalyst.com/stylesheets/my-custom-theme.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="calculator.js"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit", function() {
+      $.mobile.page.prototype.options.addBackBtn = true;
+ });    
+</script>
+<meta charset="utf-8" />
+<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=1;" name="viewport" />
+</head>
+<body>
+
+    
+        <div data-add-back-btn="true" data-role="page">
+        <div data-role="header" data-position="fixed">
+        <h1>Calculator</h1>
+        </div>
+        <div data-role="content">
+        <p style="font-size: 12px; margin-bottom: 25px;"> This tool enables you to calculate the statutory interest due on an
+overdue payment.</p>
+Date Payment Became Due<br />
+<input type="date" style="text-align: right; width: 90%; font-family: monospace; font-size: 100%; font-weight: bold;" id="p1" /><br />
+Payment Date
+<p style="font-size: 10px;">if unpaid please put today's date</p>
+<input type="date" style="text-align: right; width: 90%; font-family: monospace; font-size: 100%; font-weight: bold;" id="p2" /><br />
+Invoice Amount (£)
+<input type="number" style="text-align: right; width: 60%; font-family: monospace; font-size: 100%; font-weight: bold;" id="p3" /><br />
+Statutory Interest Owed
+<div style="font-family: monospace; font-size: 120%; font-weight: bold; color: black; border: 1px solid #aaaaaa; border-radius: 10px 10px 10px 10px; padding: 20px;" id="result">&nbsp;</div>
+<button onclick="calculate('p1','p2','p3')" style="font-size: 80%;">Calculate</button>
+<br />
+<p style="font-size: 12px;">You are also able to claim compensation under the late
+payment legislation and this will be included in your results. The rate
+of compensation you are entitled to is as follows:</p>
+<br />
+<table border="1">
+    <tbody>
+        <tr>
+            <th style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">Size of debt</span></th>
+            <th style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">Amount of compensation</span></th>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">Up to &pound;999.99</span></td>
+            <td style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">&pound;40</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">&pound;1,000 to &pound;9,999.99</span></td>
+            <td style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">&pound;70</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">Over &pound;10,000</span></td>
+            <td style="text-align: center;"><span style="font-size: 8.5pt; font-family: helvetica;">&pound;100</span></td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<p style="font-size: 12px;">Also remember to include VAT in the total value of the invoice you enter. </p>
+
+        </div>
+        </div>
+    
+
+
+</body>
+</html>
