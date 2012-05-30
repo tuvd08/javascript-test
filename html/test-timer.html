@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+    <script type="text/javascript" src="../libs/timer.js"></script>
+  </head>
+  <body>
+  <img id="image" style="display:none" src="./images/banner-2.png"/> 
+  <div id="time" style="padding: 10px; margin: 20px;"></div>
+   <script type="text/javascript">
+   /* 
+    var timer = new Timer(3000);
+    timer.addEventListener(TimerEvent.TIMER, function(e)
+    {
+      slideshow.setStep(++currentPosition % 5);
+    });
+    timer.start();
+    
+    slideshowArea.onmouseover = function()
+    {
+      timer.stop();
+    }
+    slideshowArea.onmouseout = function()
+    {
+      timer.start();
+    }
+    */
+    var tt = 1;
+    var timer = new Timer(1000, 2000, 5000);
+    var t = new Date().getTime();
+    function displayImage(e) {
+      document.getElementById('image').style.display = "block";
+      document.getElementById('time').innerHTML = "<b>" + tt + "</b>";
+      ++tt;
+      if((t + 15000) <= (new Date().getTime())) {
+        timer.stop();
+        alert(e)
+      }
+      if(e == TimerEvent.TIMER_COMPLETE) {
+        alert('xong');
+      }
+    }
+    
+    function hiddenImage() {
+      document.getElementById('image').style.display = "none";
+      alert('an di');
+    }
+
+    
+    timer.addEventListener(TimerEvent.TIMER, displayImage);
+    timer.addEventListener(TimerEvent.TIMER_COMPLETE, hiddenImage);
+    timer.start();
+    
+
+   </script>
+   
+   
+  </body>
+</html>

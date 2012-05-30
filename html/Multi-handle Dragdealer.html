@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Multi-handle Dragdealer</title>
+
+  <link rel="stylesheet" type="text/css" href="../multi-handle/dragdealer.css">
+  <style>
+body {
+  padding: 100px;
+}
+  </style>
+
+  <script src="../multi-handle/dragdealer.js"></script>
+  <script>
+window.onload = function()
+{
+  new Dragdealer('slider',
+  {
+    animationCallback: function(x, y)
+    {
+      console.log(x[0], x[1]);
+    }
+  });
+  new Dragdealer('single-slider',
+  {
+    animationCallback: function(x, y)
+    {
+      console.log(x);
+    }
+  });
+};
+  </script>
+</head>
+<body>
+  <div id="slider" class="dragdealer">
+    <span class="range"></span>
+    <div class="red-bar handle"></div>
+    <div class="red-bar handle"></div>
+  </div>
+
+  <div id="single-slider" class="dragdealer">
+    <span class="range"></span>
+    <div class="red-bar handle"></div>
+  </div>
+</body>
+</html>

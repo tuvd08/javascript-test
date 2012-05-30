@@ -1,0 +1,74 @@
+/* DON'T EDIT! */
+div.PhotoSlice * { padding: 0px; margin: 0px; }
+div.PhotoSlice div.clear {
+	clear: both;
+	overflow: hidden;
+	height: 0px;
+}
+div.PhotoSlice img {
+	visibility: hidden;
+}
+/* PHOTO BACKGROUND */
+div#PSbackground {
+	background: #000;
+}
+/* PHOTO STAGE */
+div#PSstage {
+	
+}
+div#PSstage img {
+	border: 6px solid #FFF;
+	margin: 0px auto;
+}
+div#PSstage-replica {
+	background: #FFF;
+}
+/* PANEL */
+div#PSmenu {
+	text-align: center;
+	padding: 4px 0px;
+}
+div#PSmenu div#PSbuttons {
+	height: 38px;
+	padding: 5px 10px;
+}
+div.PhotoSlice a.button {
+        cursor: pointer;
+	margin: 0px 2px; 
+	padding: 10px 20px;
+	background: #333;
+	border: 2px solid #999;
+	color: #FCFCFC;
+	font: 13px Trebuchet MS;
+	line-height: 38px;
+	text-align: center;
+	text-decoration: none;
+}
+div.PhotoSlice a.button:hover {
+	border: 2px solid #CCC;
+}
+div.PhotoSlice a.disabled {
+        display: none;
+}
+div#PScaption {
+        font: 13px Trebuchet MS;
+}
+div#PScaption p {
+	color: #FCFCFC;
+	text-align: center;
+	line-height: 32px;
+}
+div#PScaption p a {
+	border-bottom: 1px dotted #CCC;
+	color: #CCC;
+	text-decoration: none;
+}
+div#PScaption p a:hover {
+	background: #333;
+}
+div#PScaption a#PSabout {
+	float: right;
+	line-height: normal;
+	margin: 4px; padding: 0px 14px;
+	line-height: 30px;
+}

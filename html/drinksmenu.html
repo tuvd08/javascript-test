@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    
+<script type="text/javascript">
+var objDrink1 = {"drinks": [
+    {"drinkname": "SUGAR CANE PUNCH", "desc": "James' secret recipe rum punch.  Don't Ask.", "price": "£6.75", "category" : "own"},
+    {"drinkname": "ISLAND PRINCESS", "desc": "A delicate combination of white rum, lychees & rose syrup.", "price": "£6.90", "category" : "own"},
+    {"drinkname": "GRASS SKIRT", "desc": "Bison grass vodka, golden rum muddled with fresh grapes, with Feijoa, elderflower & apples, shaken from the hips Hula style!", "price": "£7.00", "category" : "own"},
+    {"drinkname": "HAIRY COCONUT", "desc": "Amarula, Rum, Banana, Chocolate, milk. For those not sweet enough already.", "price": "£7.00", "category" : "own"}        
+    ]
+};
+var objDrink = {"drinks": [
+   {"drinkname": "Red Stripe", "price": "£3.80", "desc": "Jamaican 'easy vibe' lager. 4.7%", "category":"beer"},
+   {"drinkname": "Beerlao", "price": "£4.50", "desc": "The finest of Asia. 5%", "category":"beer"},
+   {"drinkname": "Mongozo Coconut", "price": "£5.50", "desc": "A refreshing taste of coconut, produced with Organic Ingredients. 3.5%", "category":"beer"},
+   {"drinkname": "Brahma", "price": "£3.70", "desc": "Brazillian beer with a light and easy drinking flavoured profile. It has a fruity character and a distinctive hop aroma. 4.8%", "category":"beer"},
+   {"drinkname": "Phoenix", "price": "£4.20", "desc": "A clean, crisp, golden larger made with finest ingredients in the traditional method with no added Preservatives or Chemicals. Winner of the Grand Gold Award Mauritius beer. 5%", "category":"beer"},
+   {"drinkname": "Pacifico Clara", "price": "£4.00", "desc": "A brilliant pale gold, slightly hoppy full of flavour brew. 4.5%", "category":"beer"},
+   {"drinkname": "Palma Crystal", "price": "£4.50", "desc": "Straw-gold beer, with a slight orange character and herb note and a grainy softness. More crispness on the pallette with a smooth Pilsner-style freshness. 'The preference of Cuba'. 4.9%", "category":"beer"},
+   {"drinkname": "", "price": "£3.80", "desc": "", "category":"beer"}
+   ]
+};
+
+function isBad() {
+  this.width = 0;
+  this.height = 0;
+}
+
+function isGood() {
+  this.width = 38;
+  this.height = 60;
+}
+
+///grass_skirt.png
+function getImg(name) {
+  var name_ = String(name).toLowerCase();
+  name_ = 'http://www.thesugarcane.co.uk/menus/cocktails/' + name_.replace(/ /ig, '_') + '.png';
+  var img = new Image();
+  img.onLoad=isGood;
+  img.onerror=isBad;
+  img.src = name_;
+  return img;
+};
+
+function renderData(oj) {
+  if (oj) {
+    var table = document.createElement("table");
+    table.setAttribute("width", "640");
+    table.setAttribute("border", "0");
+    var drinks = oj.drinks;
+    for ( var i = 0; i < drinks.length; i++) {
+      var drink = drinks[i];
+      var Row = table.insertRow(i);
+      var name = drink.drinkname;
+      for ( var j = 0; j < 3; ++j) {
+        var Cell = Row.insertCell(j);
+        if (j == 0) {
+          var img = getImg(name);
+          if(img) {
+            Cell.appendChild(img);
+            if(img.width > 0)
+              Cell.width = 40; 
+          }else {
+            Cell.innerHTML = "&nbsp;";
+          }
+        } else if(j == 1) {
+          valign="middle"
+          Cell.setAttribute("valign", "middle");
+          Cell.innerHTML = "<strong>" + name + "</strong><br/>" + drink.desc;
+        } else {
+          Cell.setAttribute("valign", "middle");
+          Cell.innerHTML = "<div align=\"right\"><span class=\"price\">"+drink.price+"</span></div>";
+        }
+      }
+    }
+    var pr = document.getElementById(drinks[0].category);
+    if(pr) {
+      pr.innerHTML = "";
+      pr.appendChild(table);
+    }
+  }
+  
+}
+</script>
+<style>
+body #holder {
+  widht: 940px;
+  margin: auto;
+  background: url('http://www.thesugarcane.co.uk/layout_images/sc_bg_holder_page.png');
+}
+</style>
+<link href="http://www.thesugarcane.co.uk/css/sc_main.css" type="text/css" rel="stylesheet" id="Skin">
+  </head>
+  <body>
+  <div id="holder">
+    <div id="content">
+      <div id="main_content">
+        <img src="cocktails.php_files/sc_title_own_cocktails.png" alt="Sugar Cane's Own Cocktails" width="660" height="91">
+        
+        <div> The menu for json 1 with category <b>own</b></div>
+        <div id="own"></div>
+        <br/>===============================================================<br/>
+        <div> The menu for json 2 with category <b>beer</b></div>
+        <div id="beer"></div>
+      </div>
+      <div style="clear:left"></div>
+    </div>
+    <script type="text/javascript">
+      renderData(objDrink1);
+      renderData(objDrink);
+    </script>
+  </div>
+  </body>
+</html>

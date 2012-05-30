@@ -690,11 +690,11 @@ Browser.prototype.fillUpFreeSpace = function(elemt) {
   }
 };
 
-//type GET, POST
+// type GET, POST
 Browser.prototype.ajaxAsyncGetContent = function(url, callback) {
   var request = eXo.core.Browser.createHttpRequest();
   request.onreadystatechange = function() {
-    if(callback) {
+    if (callback) {
       if (request.status == 404) {
         callback("urlError");
       }
@@ -707,29 +707,23 @@ Browser.prototype.ajaxAsyncGetContent = function(url, callback) {
   request.send();
 };
 
-
-// verify that browser supports XML features and load external .xml file
-Browser.prototype.getDocumentXML = function(xFile) {
-  var xmlDoc = null;
-  if (document.implementation && document.implementation.createDocument) {
-    // this is the W3C DOM way, supported so far only in NN6+
-    xmlDoc = document.implementation.createDocument("", "theXdoc", null);
-  } else if (typeof ActiveXObject != "undefined") {
-    // make sure real object is supported (sorry, IE5/Mac)
-    if (document.getElementById("msxml").async) {
-      xmlDoc = new ActiveXObject("Msxml.DOMDocument");
+Browser.prototype.submitform = function(formName, callback, reloadall) {
+  var xmlhttp = eXo.core.Browser.createHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (callback) {
+      if (xmlhttp.status == 404) {
+        callback("urlError");
+      }
+      if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 204)) {
+        callback(xmlhttp.responseText);
+      }
     }
+  };
+  xmlhttp.open("POST", formName, true);
+  xmlhttp.send();
+  if (reloadall) {
+    setTimeout("window.location.reload( false )", 1050);
   }
-  if (xmlDoc && typeof xmlDoc.load != "undefined") {
-    // load external file (from same domain)
-    xmlDoc.load(xFile);
-  } else {
-    var reply = confirm("This example requires a browser with XML support, " + "such as IE5+/Windows or Netscape 6+.\n \nGo back to previous page?");
-    if (reply) {
-      history.back();
-    }
-  }
-  return xmlDoc;
 };
 /** ********************************************************************************* */
 eXo.core.Browser = new Browser();
@@ -779,3 +773,102 @@ var DOMUtil = {
 };
 
 eXo.core.DOMUtil = DOMUtil.getDOM();
+
+var BrowserDetect = {
+  init : function() {
+    this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+    this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "an unknown version";
+    this.OS = this.searchString(this.dataOS) || "an unknown OS";
+  },
+  searchString : function(data) {
+    for ( var i = 0; i < data.length; i++) {
+      var dataString = data[i].string;
+      var dataProp = data[i].prop;
+      this.versionSearchString = data[i].versionSearch || data[i].identity;
+      if (dataString) {
+        if (dataString.indexOf(data[i].subString) != -1)
+          return data[i].identity;
+      } else if (dataProp)
+        return data[i].identity;
+    }
+  },
+  searchVersion : function(dataString) {
+    var index = dataString.indexOf(this.versionSearchString);
+    if (index == -1)
+      return;
+    return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+  },
+  dataBrowser : [ {
+    string : navigator.userAgent,
+    subString : "Chrome",
+    identity : "Chrome"
+  }, {
+    string : navigator.userAgent,
+    subString : "OmniWeb",
+    versionSearch : "OmniWeb/",
+    identity : "OmniWeb"
+  }, {
+    string : navigator.vendor,
+    subString : "Apple",
+    identity : "Safari",
+    versionSearch : "Version"
+  }, {
+    prop : window.opera,
+    identity : "Opera",
+    versionSearch : "Version"
+  }, {
+    string : navigator.vendor,
+    subString : "iCab",
+    identity : "iCab"
+  }, {
+    string : navigator.vendor,
+    subString : "KDE",
+    identity : "Konqueror"
+  }, {
+    string : navigator.userAgent,
+    subString : "Firefox",
+    identity : "Firefox"
+  }, {
+    string : navigator.vendor,
+    subString : "Camino",
+    identity : "Camino"
+  }, { // for newer Netscapes (6+)
+    string : navigator.userAgent,
+    subString : "Netscape",
+    identity : "Netscape"
+  }, {
+    string : navigator.userAgent,
+    subString : "MSIE",
+    identity : "Explorer",
+    versionSearch : "MSIE"
+  }, {
+    string : navigator.userAgent,
+    subString : "Gecko",
+    identity : "Mozilla",
+    versionSearch : "rv"
+  }, { // for older Netscapes (4-)
+    string : navigator.userAgent,
+    subString : "Mozilla",
+    identity : "Netscape",
+    versionSearch : "Mozilla"
+  } ],
+  dataOS : [ {
+    string : navigator.platform,
+    subString : "Win",
+    identity : "Windows"
+  }, {
+    string : navigator.platform,
+    subString : "Mac",
+    identity : "Mac"
+  }, {
+    string : navigator.userAgent,
+    subString : "iPhone",
+    identity : "iPhone/iPod"
+  }, {
+    string : navigator.platform,
+    subString : "Linux",
+    identity : "Linux"
+  } ]
+
+};
+BrowserDetect.init();
