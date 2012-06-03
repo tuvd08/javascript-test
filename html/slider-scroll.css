@@ -1,0 +1,40 @@
+
+.HorContainer {
+	border: double 2px green;
+	position: relative;
+	overflow: hidden;
+}
+
+.LeftButton, .RightButton {
+	border: solid 1px red;
+	background: navy;
+	position: absolute;
+	top: 0px;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.LeftButton {
+	left: 0px;
+} 
+
+.RightButton {
+	right: 0px;
+}
+
+.Disable {
+	background: gray;
+}
+
+.HorItemContent {
+	border: solid 1px blue;
+	position: absolute;
+  top: 0px;
+  left: 18px;
+  z-index: 1;
+}
+
+.Item {
+	float: left;
+	border: solid 1px yellow;
+}

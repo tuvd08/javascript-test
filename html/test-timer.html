@@ -3,7 +3,9 @@
 <html>
   <head>
     <link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+    <link href="slider-scroll.css" type="text/css" rel="stylesheet" id="Skin">
     <script type="text/javascript" src="../libs/timer.js"></script>
+    <script type="text/javascript" src="../module/slider-scroll.js"></script>
   </head>
   <body>
   <img id="image" style="display:none" src="./images/banner-2.png"/> 
@@ -35,7 +37,7 @@
       ++tt;
       if((t + 15000) <= (new Date().getTime())) {
         timer.stop();
-        alert(e)
+        //alert(e)
       }
       if(e == TimerEvent.TIMER_COMPLETE) {
         alert('xong');
@@ -51,10 +53,26 @@
     timer.addEventListener(TimerEvent.TIMER, displayImage);
     timer.addEventListener(TimerEvent.TIMER_COMPLETE, hiddenImage);
     timer.start();
-    
 
    </script>
+   <div style="display:none">
+   <div id="initcontainer" style="display:block">
+   </div>
+   </div>
    
+   <div id="sliderHor" style="padding: 10px; margin: 20px;"></div>
+   <script type="text/javascript">
    
+   var s = "fsai hfiua hfiuahf iua hfiuashf iusahfiuasgf uydsagf asf";
+   var it = new newItem();
+   var init = document.getElementById('initcontainer');
+   for ( var i = 0; i < 8; i++) {
+     it.width = (200 + Math.floor((Math.random()*100)+1));
+     it.content = String(s).substring(0, Math.floor((Math.random()*s.length)+1))
+     init.appendChild(it.getElm());
+   }
+   SLIDER_SCROLL.initExistItem('initcontainer');
+   SLIDER_SCROLL.addTo('sliderHor', 'horizontal', 500, 80);
+   </script>
   </body>
 </html>
