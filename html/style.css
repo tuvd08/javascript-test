@@ -13,16 +13,17 @@ body,html {
   display: inline-block; /* IE7not8 */
 }
 
-#hidden {
-  display: none;  
-}
-
 .Clearfix:after { /* FF, IE8, O, S, etc. */
   content: ".";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
+}
+
+
+#hidden {
+  display: none;  
 }
 
 .Copyright {
