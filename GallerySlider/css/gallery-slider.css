@@ -1,0 +1,76 @@
+.HorContainer {
+	position: relative;
+	overflow: hidden;
+}
+
+.LeftButton,.RightButton {
+	position: absolute;
+	top: 0px;
+	z-index: 10;
+	cursor: pointer;
+	width: 36px;
+	height: 36px;
+}
+
+.LeftBg, .RightBg {
+	width: 36px;
+	height: 36px;
+}
+
+.LeftButton {
+	left: 10px;
+}
+
+.LeftBg {
+	background: url("gallery_leftarrow.png") no-repeat center;	
+}
+
+.RightButton  {
+	right: 10px;
+}
+
+.RightBg {
+	background: url("gallery_rightarrow.png") no-repeat center;
+}
+
+.LeftButton div:hover {
+	background: url("hv_gallery_leftarrow.png") no-repeat center;
+}
+
+.RightButton div:hover  {
+	background: url("hv_gallery_rightarrow.png") no-repeat center;
+}
+
+.DisableLeft  div:hover {
+	background: url("gallery_leftarrow.png") no-repeat center;
+}
+
+.DisableRight div:hover  {
+	background: url("gallery_rightarrow.png") no-repeat center;
+}
+
+
+.HorItemContent {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+
+.TitleImage {
+	position: absolute;
+	z-index: 100;
+  color: gray;
+  text-align: center;
+  bottom: 5px;
+  margin: auto;
+  left: 0px;
+}
+
+.Item {
+	float: left;
+	background: white;
+  position: relative;
+  text-align: center;
+}

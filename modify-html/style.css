@@ -1,0 +1,45 @@
+body,html {
+	padding: 0px;
+	margin: 0px;
+	font-family: Ubuntu, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+
+* html .Clearfix {
+	height: 1%; /* IE5-6 */
+}
+
+*+html .Clearfix {
+	display: inline-block; /* IE7not8 */
+}
+
+#hidden {
+	display: none;	
+}
+
+.Clearfix:after { /* FF, IE8, O, S, etc. */
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.Copyright {
+	width: 100%;
+	overflow: hidden;
+	text-align: right;
+	position: absolute;
+	top: 10px;
+  right: 20px;
+}
+
+.button {
+  margin: 20px;
+}
+
+.runscript {
+  font-weight: bold;
+  color: blue;
+  margin: 20px;
+}

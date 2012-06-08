@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+*, html {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	background:#fff url(../images/bg.gif) top center repeat-x fixed;
+	margin:0;
+	padding:0;
+	font:normal 14px 'PT Sans', arial, serif;
+	color:#000;
+	line-height:20px;
+}
+
+a {
+	color:#0e4478;
+	text-decoration:underline;
+	outline-style:none;
+}
+a:hover {
+	color:#0e4478;
+	text-decoration:none;
+	outline-style:none;
+}
+
+p {
+	padding:0px 0px 15px 0px;
+}
+
+h1 {
+	display:block;
+	float:left;
+	width:450px;
+	margin:0px;
+	padding:0px;
+	font:normal 12px 'PT Sans', arial, serif;
+	color:#333;
+	line-height:25px;
+	text-align:left;
+}
+
+h2 {
+	font:normal 22px 'PT Sans', arial, serif;
+	margin:0px ;
+	padding-bottom:10px;
+	color:#0e4478;
+}
+h2 a:link, h2 a:active, h2 a:visited {
+	font:normal 22px 'PT Sans', arial, serif;
+	margin:0px ;
+	color:#0e4478;
+}
+h2 a:hover {
+	font:normal 22px 'PT Sans', arial, serif;
+	margin:0px ;
+	color:#6d6d70;
+}
+h2 span {
+	font:normal 18px 'PT Sans', arial, serif;
+	margin:0px;
+	color:#6d6d70;
+	line-height:34px;
+}
+h3 {
+	font:bold 20px 'PT Sans', arial, serif;
+	margin:0px ;
+	padding-bottom:7px;
+	padding-top:10px;
+	color:#0E4478;
+}
+
+h4 {
+	font:bold 18px 'PT Sans', arial, serif;
+	margin:0px ;
+	padding-bottom:4px;
+	color:#0E4478;
+}
+
+h5 {
+	font:normal 18px 'PT Sans', arial, serif;
+	margin:0px ;
+	padding-bottom:10px;
+	color:#333333;
+	text-transform:uppercase;
+}
+
+h6, h6 a, h6 a:visited, h6 a:active {
+	font:bold 18px 'PT Sans', arial, serif;
+	margin:0px ;
+	padding-bottom:10px;
+	padding-top:10px;
+	color:#333333;
+	text-transform:uppercase;
+}
+
+h6 a, h6 a:visited, h6 a:active {
+	color:#333333;
+	text-decoration:none;
+}
+
+h6 a:hover {
+	color:#999;
+	text-decoration:none;
+}
+
+ul.list  {
+	margin:0px;
+	padding:0px 0px 0px 25px;
+}
+ul.list li {
+	margin:0px;
+	padding:0px 0px 10px 0px;
+}
+
+#bannerx #banner-photo {
+  margin: 30px auto;
+}

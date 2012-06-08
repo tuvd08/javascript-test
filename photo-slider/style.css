@@ -1,0 +1,97 @@
+#mainslidewrap {
+width: 720px;
+margin: 10px auto;
+border: 1px solid #ccc;
+background: #eee;
+}
+#mainslider {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0 auto;
+/*  width: 733px;*/
+  height: 185px;
+}
+
+#content { padding-top: 0px;}
+.slideframe {
+  border-radius: 10px;
+  background: #ccc;
+  border: 1px solid #000;
+  width: 221px;
+  height: 166px;
+  margin: 10px 5px;
+  float: left;
+}
+      #dt1 {background: url('http://atlanta-liposuction.com/img/dt-c-2.jpg') 0px 0px no-repeat;}
+      #dt2 {background: url('http://atlanta-liposuction.com/img/dt-c-2.jpg') -221px 0px no-repeat;}
+      #dt3 {background: url('http://atlanta-liposuction.com/img/dt-c-2.jpg') -442px 0px no-repeat;}
+      
+      #dw1 {background: url('http://atlanta-liposuction.com/img/dw-c-2.jpg') 0px 0px no-repeat;}
+      #dw2 {background: url('http://atlanta-liposuction.com/img/dw-c-2.jpg') -221px 0px no-repeat;}
+      #dw3 {background: url('http://atlanta-liposuction.com/img/dw-c-2.jpg') -442px 0px no-repeat;}
+      
+      #chad1 {background: url('http://atlanta-liposuction.com/img/chad-c-2.jpg') 0px 0px no-repeat;}
+      #chad2 {background: url('http://atlanta-liposuction.com/img/chad-c-2.jpg') -221px 0px no-repeat;}
+      #chad3 {background: url('http://atlanta-liposuction.com/img/chad-c-2.jpg') -442px 0px no-repeat;}
+      
+      #trqu1 {background: url('http://atlanta-liposuction.com/img/trqu-c-2.jpg') 0px 0px no-repeat;}
+      #trqu2 {background: url('http://atlanta-liposuction.com/img/trqu-c-2.jpg') -221px 0px no-repeat;}
+      #trqu3 {background: url('http://atlanta-liposuction.com/img/trqu-c-2.jpg') -442px 0px no-repeat;}
+      
+      #reyn1 {background: url('http://atlanta-liposuction.com/img/reyn-c-2.jpg') 0px 0px no-repeat;}
+      #reyn2 {background: url('http://atlanta-liposuction.com/img/reyn-c-2.jpg') -221px 0px no-repeat;}
+      #reyn3 {background: url('http://atlanta-liposuction.com/img/reyn-c-2.jpg') -442px 0px no-repeat;}
+      
+      #jear1 {background: url('http://atlanta-liposuction.com/img/jear-c-2.jpg') 0px 0px no-repeat;}
+      #jear2 {background: url('http://atlanta-liposuction.com/img/jear-c-2.jpg') -221px 0px no-repeat;}
+      #jear3 {background: url('http://atlanta-liposuction.com/img/jear-c-2.jpg') -442px 0px no-repeat;}
+      
+      #mb1 {background: url('http://atlanta-liposuction.com/img/mb-c-2.jpg') 0px 0px no-repeat;}
+      #mb2 {background: url('http://atlanta-liposuction.com/img/mb-c-2.jpg') -221px 0px no-repeat;}
+      #mb3 {background: url('http://atlanta-liposuction.com/img/mb-c-2.jpg') -442px 0px no-repeat;}
+      
+      #nade1 {background: url('http://atlanta-liposuction.com/img/nade-c-2.jpg') 0px 0px no-repeat;}
+      #nade2 {background: url('http://atlanta-liposuction.com/img/nade-c-2.jpg') -221px 0px no-repeat;}
+      #nade3 {background: url('http://atlanta-liposuction.com/img/nade-c-2.jpg') -442px 0px no-repeat;}
+      
+      #aw1 {background: url('http://atlanta-liposuction.com/img/aw-c-2.jpg') 0px 0px no-repeat;}
+      #aw2 {background: url('http://atlanta-liposuction.com/img/aw-c-2.jpg') -221px 0px no-repeat;}
+      #aw3 {background: url('http://atlanta-liposuction.com/img/aw-c-2.jpg') -442px 0px no-repeat;}
+      
+      #kaar1 {background: url('http://atlanta-liposuction.com/img/kaar-c-2.jpg') 0px 0px no-repeat;}
+      #kaar2 {background: url('http://atlanta-liposuction.com/img/kaar-c-2.jpg') -221px 0px no-repeat;}
+      #kaar3 {background: url('http://atlanta-liposuction.com/img/kaar-c-2.jpg') -442px 0px no-repeat;}
+      
+      #rc1 {background: url('http://atlanta-liposuction.com/img/rc-c-2.jpg') 0px 0px no-repeat;}
+      #rc2 {background: url('http://atlanta-liposuction.com/img/rc-c-2.jpg') -221px 0px no-repeat;}
+      #rc3 {background: url('http://atlanta-liposuction.com/img/rc-c-2.jpg') -442px 0px no-repeat;}
+      
+      #sh1 {background: url('http://atlanta-liposuction.com/img/sh-c-2.jpg') 0px 0px no-repeat;}
+      #sh2 {background: url('http://atlanta-liposuction.com/img/sh-c-2.jpg') -221px 0px no-repeat;}
+      #sh3 {background: url('http://atlanta-liposuction.com/img/sh-c-2.jpg') -442px 0px no-repeat;}
+      
+      #sr1 {background: url('http://atlanta-liposuction.com/img/sr-c-2.jpg') 0px 0px no-repeat;}
+      #sr2 {background: url('http://atlanta-liposuction.com/img/sr-c-2.jpg') -221px 0px no-repeat;}
+      #sr3 {background: url('http://atlanta-liposuction.com/img/sr-c-2.jpg') -442px 0px no-repeat;}
+      
+      #sume1 {background: url('http://atlanta-liposuction.com/img/sume-c-2.jpg') 0px 0px no-repeat;}
+      #sume2 {background: url('http://atlanta-liposuction.com/img/sume-c-2.jpg') -221px 0px no-repeat;}
+      #sume3 {background: url('http://atlanta-liposuction.com/img/sume-c-2.jpg') -442px 0px no-repeat;}
+      
+      #tico1 {background: url('http://atlanta-liposuction.com/img/tico-c-2.jpg') 0px 0px no-repeat;}
+      #tico2 {background: url('http://atlanta-liposuction.com/img/tico-c-2.jpg') -221px 0px no-repeat;}
+      #tico3 {background: url('http://atlanta-liposuction.com/img/tico-c-2.jpg') -442px 0px no-repeat;}
+      
+      #trdr1 {background: url('http://atlanta-liposuction.com/img/trdr-c-2.jpg') 0px 0px no-repeat;}
+      #trdr2 {background: url('http://atlanta-liposuction.com/img/trdr-c-2.jpg') -221px 0px no-repeat;}
+      #trdr3 {background: url('http://atlanta-liposuction.com/img/trdr-c-2.jpg') -442px 0px no-repeat;}
+      
+      #nawh1 {background: url('http://atlanta-liposuction.com/img/nawh-c-2.jpg') 0px 0px no-repeat;}
+      #nawh2 {background: url('http://atlanta-liposuction.com/img/nawh-c-2.jpg') -221px 0px no-repeat;}
+      #nawh3 {background: url('http://atlanta-liposuction.com/img/nawh-c-2.jpg') -442px 0px no-repeat;}
+
+.clear{clear: both; height: 0px;}
+
+#nexts, #prevs { height: 180px; width: 10px; float: left; margin: 0 auto; cursor: pointer;}
+#prevs {background: url(http://atlanta-liposuction.com/img/left.png) 50% 50% no-repeat;}
+#nexts {background: url(http://atlanta-liposuction.com/img/right.png) 50% 50% no-repeat;}

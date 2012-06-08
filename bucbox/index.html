@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Buckbox</title>
+<link href="CSS/styles.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {
+	background-color: #000033;
+	background-image: url(Images/bg.png);
+}
+</style>
+
+<script type="text/javascript">
+  function validate(email) {
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(reg.test(email) == false) {
+      return false;
+    }
+    return true;
+  }
+
+  function submit() {
+    var form = document.getElementById('formSend');
+    if(form) {
+      var email = form.elements['email'].value;
+      if(!email || email.length == 0) {
+        alert('Please, enter the your email address.');
+      } else {
+        if(validate(email) === false) {
+           alert('Invalid your email address.');
+        } else {
+          form.submit();
+        }
+      }
+    }
+  }
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header"><span></span></div><!-- end .header -->
+  <div class="content">
+    <div class="logoBucbox">
+      <div class="coming-soon"><span></span></div>
+    </div>
+    <p align="center"><spam class="foreword">A social site connecting <span class="etsuword">ETSU</span> students and faculty</spam></p>
+  </div><!-- end .content -->
+  <div class="footer">
+    <div class="notify" id="notify">
+  	  <div class="label">Notify Me When Bucbox Launches:</div>
+  		<form id="formSend" name="htmlform" method="post" action="html_form_send.php">
+        <div class="Clearfix">
+          <div class="Input">
+            <input type="email" placeholder="Enter your e-mail" name="email" maxlength="80" size="30"/>
+          </div>
+          <div onclick="submit()" id="Submitbutton" class="Submitbutton">Submit</div>
+        </div>
+      </form>
+    </div>
+    <p align="center">&nbsp;</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>

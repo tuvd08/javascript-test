@@ -1,0 +1,28 @@
+.ClearFix: after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden
+}
+
+* +html.ClearFix {
+  display: inline - block;
+  zoom: 1;
+  display: block
+}
+
+#renderData {
+  width: 95%;
+  margin: auto;
+}
+
+#renderData div {
+  display: inline-block;
+  margin: 8px;
+}
+
+#renderData p {
+  padding: 0px;
+  margin: 0px;
+}

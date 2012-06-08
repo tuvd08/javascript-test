@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+<script type="text/javascript" src="convertlink.js"></script>
+	</head>
+	<body>
+		<div class="Copyright"> 
+			Copyright © 04/2012. All rights reserved.<br/>
+				Other: Vu Duy Tu<br/>
+				Email: duytucntt@gmail.com
+		</div>
+<div class="runscript">
+Please Click this button to run script replace link. (this script apply for http:// and https://)<br/>
+</div>
+<input type="button" class="button" onclick="ReplaceLink.replaceLink()" value="Replace all link"/>
+<input type="button" class="button" onclick="ReplaceLink.replaceOnlyLink()" value="Replace only after @Reference"/>
+
+
+
+<div class="story">
+<h1>Description: Verify that the configuration and application definition are sane</h1>
+<div class="path">configuration.story</div>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@story Configuration</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Verify that all users can login correctly</h2>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@Reference http://www.google.com</div>
+</div>
+<div class="filter">+id config_is_logged_in -skip</div>
+</div>
+
+<div class="scenario">
+<h2>Scenario: Verify that all users can login correctly</h2>
+<div class="meta">
+<div class="keyword">Meta: other link https://www.google.com or http://www.google.com</div>
+<div class="property">@Reference https://www.google.com</div>
+</div>
+<div class="filter">+id config_is_logged_in -skip</div>
+</div>
+
+<div class="scenario">
+<h2>Scenario: Verify that users are not logged in when using an incorrect password</h2>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@id config_wrong_password</div>
+<div class="property">@Reference http://www.yahoo.com</div>
+</div>
+<div class="filter">+id config_is_logged_in -skip</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Verify that if users don't login, then they are not logged in (According to the ILogin.isLoggedIn(Role) method)</h2>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@Description The isLoggedIn function should return false if users haven't logged in.</div>
+<div class="property">@Reference http://news.bbc.co.uk</div>
+<div class="property">@id config_is_logged_in</div>
+</div>
+<div class="step successful">Given the login page</div>
+<div class="step successful">Then the user is not logged in</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Verify that the methods tagged with @SecurityScan can be navigated without errors</h2>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@id config_navigate_all</div>
+</div>
+<div class="filter">+id config_is_logged_in -skip</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Verify that authorised users can view restricted resources</h2>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@id config_authorisation</div>
+</div>
+<div class="filter">+id config_is_logged_in -skip</div>
+</div>
+</div>
+
+    
+</body>
+</html>
