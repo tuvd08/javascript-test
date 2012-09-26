@@ -2,14 +2,61 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="style.css" type="text/css" rel="stylesheet" id="Skin">
+<style>
+body, html {
+    font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+    height: 100%
+}
+
+.ClearFix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+* + html .ClearFix {
+    display: block;
+}
+
+.UIUserInfoMenu {
+    display: inline;
+    float: none;
+    margin: 0;
+    position: relative;
+    visibility: hidden;
+    width: auto;
+}
+
+.UIUserInfoMenu .UIInfoContent {
+    left: -50px; top: 10px;
+    padding: 0;
+    position: absolute;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D3D3D3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: -1px 2px 3px #D5D5D5;
+    padding: 10px;
+}
+
+</style>
 <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../module/infoblock.js"></script>
 <script type="text/javascript" src="user-menu-plugin.js"></script>
+
 </head>
 <body>
-
+<br><br>
+<br>
+<br>
+<br>
 	<div id="UISocialContainer">
-		<a href="#" id="root" class="UserInfo">Root Root</a> | <a href="#" id="demo" class="UserInfo">Exo Demo</a>
+		<a href="#" rel="root" class="UserInfo">Root Root</a> ===========|=========== <a href="#" rel="demo" class="UserInfo">Exo Demo</a>
+		<a href="#" rel="root" class="UserInfo">Root Root</a> ===========|=========== <a href="#" rel="demo" class="UserInfo">Exo Demo</a>
 	</div>
 
 <script type="text/javascript">
