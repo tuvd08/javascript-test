@@ -102,8 +102,8 @@ var SLIDER_SCROLL = {
   },
   clickButton : function() {
     var clazz = String(this.className);
-    if (clazz) {
-      if (clazz.indexOf('Left') >= 0 && clazz.indexOf('Disable') < 0) {
+    if (clazz && clazz.indexOf('Disable') < 0) {
+      if (clazz.indexOf('Left') >= 0) {
         var left = SLIDER_SCROLL.currentLeft - (SLIDER_SCROLL.widthIndex[SLIDER_SCROLL.indexHor] + 2);
         if ((left + SLIDER_SCROLL.maxW) <= SLIDER_SCROLL.contW) {
           left = SLIDER_SCROLL.currentLeft - SLIDER_SCROLL.countFromTo(SLIDER_SCROLL.indexHor, SLIDER_SCROLL.length);
@@ -115,6 +115,19 @@ var SLIDER_SCROLL = {
         SLIDER_SCROLL.posisionElm.setPosision(SLIDER_SCROLL.contElmHor, 'left', SLIDER_SCROLL.currentLeft, left);
         SLIDER_SCROLL.currentLeft = left;
         SLIDER_SCROLL.indexHor += 1;
+      } else if (clazz.indexOf('Right') >= 0) {
+        var left = SLIDER_SCROLL.currentLeft + SLIDER_SCROLL.widthIndex[SLIDER_SCROLL.indexHor] + 2;
+        if (left > 0 || SLIDER_SCROLL.indexHor == 1) {
+          left = 0;
+          this.className = clazz + " DisableLeft";
+        }
+        SLIDER_SCROLL.posisionElm.setPosision(SLIDER_SCROLL.contElmHor, 'right', SLIDER_SCROLL.currentLeft, left);
+        SLIDER_SCROLL.currentLeft = left;
+        SLIDER_SCROLL.indexHor -= 1;
+        var rbt = SLIDER_SCROLL.Core.findFriendElementByClassName(this, 'div', 'LeftButton', 'Previous');
+        if (rbt) {
+          rbt.className = "LeftButton";
+        }
       }
     }
   },
@@ -195,15 +208,52 @@ var SLIDER_SCROLL = {
       to.appendChild(this.builderHor("HorContainer", width, height));
     }
   },
-  findAncestorByClass : function(element, clazz) {
-    if (element == null)
+  Core : {
+    hasClass : function(elemt, className) {
+      var reg = new RegExp('(^|\\s+)' + className + '(\\s+|$)');
+      return reg.test(elemt['className']);
+    },
+    findAncestorByClass : function(element, clazz) {
+      if (element == null)
+        return null;
+      var parent = element.parentNode;
+      while (parent != null) {
+        if (SLIDER_SCROLL.Core.hasClass(parent, clazz))
+          return parent;
+        parent = parent.parentNode;
+      }
       return null;
-    var parent = element.parentNode;
-    while (parent != null) {
-      if (this.hasClass(parent, clazz))
-        return parent;
-      parent = parent.parentNode;
+    },
+    findFriendElementByTagName : function(element, tagName, type) {
+      var previousElement;
+      if (type == 'Previous') {
+        previousElement = element.previousSibling;
+      } else {
+        previousElement = element.nextSibling;
+      }
+      while (previousElement != null) {
+        var nodeName = previousElement.nodeName;
+        if (nodeName != null)
+          nodeName = nodeName.toLowerCase();
+        if (nodeName == tagName)
+          return previousElement;
+        if (type == 'Previous') {
+          previousElement = previousElement.previousSibling;
+        } else {
+          previousElement = previousElement.nextSibling;
+        }
+      }
+      return null;
+    },
+    findFriendElementByClassName : function(element, tagName, clazz, type) {
+      var previousElement = SLIDER_SCROLL.Core.findFriendElementByTagName(element, tagName, type);
+      ;
+      while (previousElement != null) {
+        if (SLIDER_SCROLL.Core.hasClass(previousElement, clazz))
+          return previousElement;
+        previousElement = SLIDER_SCROLL.Core.findFriendElementByTagName(previousElement, tagName, type);
+      }
+      return null;
     }
-    return null;
   }
 };
