@@ -1,21 +1,32 @@
 ;(function($, document, window) {
   var template = null;
   var display = true;
+  function initCSS() {
+    var cssCt = '.UIUserInfoMenu {visibility: inherit; display:inline; float:none; position: relative; width: auto;}'
+            + '.UIInfoContent {backgroud: #fff; font-size:11px; padding:10px; box-shadow: -1px 2px 3px #D5D5D5; border-radius: 8px 8px 8px 8px; max-width: 250px;}'
+            + '.UIInfoContent .Avatar {width: 50px; height: 50px; border: solid 1px #b7b7b7; border-radius:5px; float:left};'
+            + '.UIInfoContent .RightInfo {margin-left: 60px; line-height: 14px;};'
+            + '.UIInfoContent .FullName {font-weight: bold;color: darkorange; font-size: 11px;}'
+            + '.UIInfoContent .Status {color: #222222; font-size: 10px; white-space:nowrap;}'
+            + '.UIInfoContent .More {color: #darkorange; font-size: 10px; white-space:nowrap;}'
+            + '.UIInfoContent .LeftRowIcon {}'
+            + '.UIInfoContent .Invite {line-height: 24px; text-align: center; margin: 6px auto; max-width:150px; border:solid 1px gray; cursor:pointer;}';
+  }
   // building template of menu
   function buildTemplate() {
     if(template === null) {
-      template = $('<div class="UIInfoContent" style="backgroud: #fff; font-size:11px; padding:10px; box-shadow: -1px 2px 3px #D5D5D5; border-radius: 8px 8px 8px 8px; max-width: 250px"></div>')
+      template = $('<div class="UIInfoContent"></div>')
         .append(
           $('<div class="ClearFix"></div>')
-            .append('<div class="Avatar" style="width: 50px; height: 50px; border: solid 1px #b7b7b7; border-radius:5px; float:left"></div>')
+            .append('<div class="Avatar"></div>')
             .append(
-              $('<div style="margin-left: 60px; line-height: 14px"></div>')
-                .append('<div class="FullName" style="font-weight: bold;color: darkorange; font-size: 11px">FullName</div>')
-                .append('<div class="Status" style="color: #222222; font-size: 10px; white-space:nowrap">Status</div>')
-                .append('<div><a class="More" href="javascript:void(0)" style="font-size: 10pxl color: darkorange;">More<span class="LeftRowIcon"></span></a></div>')
+              $('<div class="RightInfo"></div>')
+                .append('<div class="FullName">FullName</div>')
+                .append('<div class="Status">Status</div>')
+                .append('<div><a class="More" href="javascript:void(0)">More<span class="LeftRowIcon"></span></a></div>')
             )
         )
-        .append('<div class="Invite" style="line-height: 24px; text-align: center; margin: 6px auto; max-width:150px; border:solid 1px gray; cursor:pointer" >Invite to connect</div>');
+        .append('<div class="Invite">Invite to connect</div>');
     }
     return template;
   }
@@ -32,21 +43,15 @@
   function UserInfo(jelm) {
     var userInfo = {
         jElmInfo: $(jelm),
-        container : $('<div class="UIUserInfoMenu"></div>')
-                      .css({
-                        'visibility': 'inherit',
-                        'display': 'inline',
-                        'float': 'none',
-                        'position': 'relative',
-                        'width': 'auto'
-                      }),
+        container : $('<div class="UIUserInfoMenu"></div>'),
         userId : "",
         avatarURL : "",
         profileURL : "",
         status : "",
         template : "",
+        json : null,
         init : function() {
-          
+        //  this.json = 
         },
         getFullName : function() {
           return this.userId;
