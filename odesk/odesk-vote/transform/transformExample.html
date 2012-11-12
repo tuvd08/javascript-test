@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <style>
+        .imgAG {border: 10px solid #fffffe; }
+
+        #divimgAG0 {
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+             position: absolute;
+
+        }
+#divimgAG0.default {
+  left: 100px;
+  top: 60px;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  zoom: 1;
+}
+
+.anim1a {
+    -webkit-animation-name: anim1a;
+    -moz-animation-name: anim1a;
+}
+
+.anim2a {
+    -webkit-animation-name: anim2a;
+    -moz-animation-name: anim2a;
+}
+
+.anim3a {
+    -webkit-animation-name: anim3a;
+    -moz-animation-name: anim3a;
+}
+
+#divimgAG0.animate {
+
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: both;
+
+    -moz-transition-timing-function: ease-in-out;
+    -moz-animation-duration: 2s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: both;
+
+}
+
+#divimgAG0.animate2 {
+    -webkit-animation-duration: 6s;
+    -moz-animation-duration: 6s;
+    -webkit-animation: anim3a 6s 1;
+}
+
+@-webkit-keyframes anim1a {
+   0% {
+      -webkit-transform: scale(0.6);
+      top: 20px;
+      left: 100px;
+   }
+   30% {
+      -webkit-transform: scale(0.75);
+      top: 20px;
+      left: 300px;
+   }
+   60% {
+      -webkit-transform: scale(0.9);
+      top: 150px;
+      left: 300px;
+   }
+   100% {
+      -webkit-transform: scale(1);
+      top: 150px;
+      left: 100px;
+   }
+}
+
+@-webkit-keyframes anim2a {
+   0% {
+      -webkit-transform: scale(1);
+      top: 60px;
+      left: 120px;
+   }
+   100% {
+      -webkit-transform: scale(2);
+      top : 150px;
+      left: 260px;
+   }
+}
+
+@-moz-keyframes anim1a {
+   0% {
+      -moz-transform: scale(1);
+      top: 20px;
+      left: 100px;
+   }
+   30% {
+      -moz-transform: scale(0.9);
+      top: 20px;
+      left: 300px;
+   }
+   60% {
+      -moz-transform: scale(0.75);
+      top: 150px;
+      left: 300px;
+   }
+   100% {
+      -moz-transform: scale(0.6);
+      top: 150px;
+      left: 100px;
+   }
+}
+
+@-moz-keyframes anim2a {
+   0% {
+      -moz-transform: scale(1);
+      top: 60px;
+      left: 120px;
+   }
+   100% {
+      -moz-transform: scale(2);
+      top : 150px;
+      left: 260px;
+   }
+}
+#divimgAG0 {
+   text-indent: 0px;
+   -webkit-transform-style: preserve-3d;
+   -webkit-backface-visibility: hidden;
+}
+
+@-webkit-keyframes anim3a {
+   0% {
+      -webkit-transform: rotate(0deg);
+      top: 60px;
+      left: 100px;
+   }
+   5% {
+      -webkit-transform: scale(0.2) rotate(90deg);
+      top : 150px;
+      left: 260px;
+   }
+   35% {
+      -webkit-transform: scale(1) rotate(720deg);
+   }
+   65% {
+      -webkit-transform: scale(0.2) rotate(0deg);
+   }
+   95% {
+      -webkit-transform: scale(1) rotate(-90deg);
+      top : 150px;
+      left: 260px;
+   }
+   100% {
+      -webkit-transform: rotate(0deg);
+      top: 60px;
+      left: 100px;
+   }
+}
+
+@-webkit-keyframes anim3as {
+0%		{-webkit-transform: rotate(0deg);left:0px;}
+25%		{-webkit-transform: rotate(20deg);left:0px;}
+50%		{-webkit-transform: rotate(0deg);left:500px;}
+55%		{-webkit-transform: rotate(0deg);left:500px;}
+70%		{-webkit-transform: rotate(0deg);left:500px;background:#1ec7e6;}
+100%	{-webkit-transform: rotate(-360deg);left:0px;}
+}
+
+@-moz-keyframes anim3a {
+   0% {
+      -moz-transform: scale(1);
+      top: 60px;
+      left: 100px;
+   }
+   5% {
+      -moz-transform: scale(0.2) rotate(0deg);
+      top : 150px;
+      left: 260px;
+   }
+   35% {
+      -moz-transform: scale(1) rotate(720deg);
+      top : 150px;
+      left: 260px;
+   }
+   65% {
+      -moz-transform: scale(0.2) rotate(-720deg);
+      top : 150px;
+      left: 260px;
+   }
+   95% {
+      -moz-transform: scale(1) rotate(720deg);
+      top : 150px;
+      left: 260px;
+   }
+   100% {
+      -moz-transform: rotate(360deg);
+      top: 60px;
+      left: 100px;
+   }
+}
+    </style>
+</head>
+<body>
+
+<div id="divimgAG0" class="default animate">
+    <div  style="background: #e5e5e5; opacity: 1; box-shadow: 5px 5px 8px #666666; width: 201px; height: 220px; z-index: 6;">
+        <img id="imgAG0" class="imgAG" style="opacity:1; width: 181px; height: 200px;" src="1.jpg">
+    </div>
+</div>
+
+    <a href="javascript:void(0)" onclick="(function(event){$('#divimgAG0').removeClass('anim1a').addClass('anim1a'); event.stopPropagation();return false;})(event)">start</a> | 
+    <a href="javascript:void(0)" onclick="(function(event){$('#divimgAG0').removeClass('anim2a').addClass('anim2a'); event.stopPropagation(); return false;})(event)">start2</a> | 
+    <a href="javascript:void(0)" onclick="(function(event){$('#divimgAG0').removeClass('anim3a').addClass('animate2 anim3a'); event.stopPropagation(); return false;})(event)">start3</a>
+
+        
+</body>
+</html>

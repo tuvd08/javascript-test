@@ -1,0 +1,217 @@
+
+<!-- saved from url=(0037)http://netteadresse.de/odesk20120924/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style type="text/css">
+.anim1aL {
+    -webkit-animation-name: anim1aL;
+    -moz-animation-name: anim1aL;
+}
+.anim1aR {
+    -webkit-animation-name: anim1aR;
+    -moz-animation-name: anim1aR;
+}
+.animate {
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: both;
+
+    -moz-transition-timing-function: ease-in-out;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: both;
+}
+
+</style>
+
+<style id="anim1a">
+@-moz-keyframes anim1aMain {
+   0% {
+      -moz-transform: scale(1);
+      opacity: 1;
+      top: 10px;
+      left: 10px;
+      z-index: 8;
+   }
+   
+   100% {
+      -moz-transform: scale(0.4);
+      opacity: 0;
+      top: 11px;
+      left: 11px;
+      z-index: 20;
+   }
+}
+</style>
+<style id="anim1aExtendL"></style>
+<style id="anim1aExtendR"></style>
+<link type="text/css" href="css/jquery-ui-1.8.24.custom.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+<div id="divAliengallery"><hr><div id="divAlienCounter"><div class="cntrF" id="cntr0" style="left: 791px; top: 18px">0</div><div class="cntrF" id="cntr1" style="left: 806px; top: 18px">0</div><div class="cntrF" id="cntr2" style="left: 821px; top: 18px">1</div><div class="cntrF" id="cntr3" style="left: 836px; top: 18px">2</div><div class="cntrF" id="cntr4" style="left: 851px; top: 18px">3</div></div><hr>
+
+<div id="divAlienGalleryPics" style="width:600px; height: 400px; "></div>
+
+<div id="divAlienMsg" style="z-index: 6; margin-left: 100px; height: 20px; width: 400px; background-color: rgb(255, 255, 255); text-align: center; padding: 10px; border: 3px solid rgb(0, 0, 0); box-shadow: rgb(85, 85, 85) 5px 5px 10px; position: absolute; margin-top: -80px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display: none; ">Community voted: noway</div>
+<div id="divAlienButtons">
+	<div id="divHideButtons" style="z-index: -1; margin: 0px; opacity: 0.5; position: absolute; width: 900px; height: 110px; background-color: rgb(170, 170, 170); "></div>
+	<img id="imgHideButtonsa" src="buttons2a.png" style="z-index: 2; position: absolute; width: 900px; height: 110px; display: none; ">
+	<img id="imgHideButtonsb" src="buttons2b.png" style="z-index: 2; position: absolute; width: 900px; height: 110px; display: none; ">
+	<img id="imgHideButtonsc" src="buttons2c.png" style="z-index: 2; position: absolute; width: 900px; height: 110px; display: none; ">
+	<img id="imgHideButtonsd" src="buttons2d.png" style="z-index: 2; position: absolute; width: 900px; height: 110px; display: none; ">
+	<img id="imgButtons" src="buttons2.png" style="z-index: 1; width:900px; height: 110px;" usemap="#butt2">
+	<map name="butt2">
+		<area shape="rect" coords="100,0,269,105" href="javascript:window.alienGallery.onclickButton('perfect','1005','1001')"> 
+		- <area shape="rect" coords="279,0,448,105" href="javascript:window.alienGallery.onclickButton('good','1005','1001')"> 
+		- <area shape="rect" coords="447,0,616,105" href="javascript:window.alienGallery.onclickButton('dontknow','1005','1001')"> 
+		- <area shape="rect" coords="622,0,791,105" href="javascript:window.alienGallery.onclickButton('noway','1005','1001')">
+	</map>
+</div>
+
+<div id="divAlienUndo">
+	<img src="top2b.png" usemap="#topButton" style="width:900px; height: 39px; display:block; position: absolute; top:8px; left:8px;">
+	<map name="topButton">
+		<area shape="rect" coords="0,0,100,39" href="javascript:document.alienGallery.onclickButton('undo','0','0')">
+		<area shape="rect" coords="100,0,200,39" href="javascript:document.alienGallery.onclickButton('reportImgs','1005','1001')">
+	</map>
+
+	<div>
+		<div id="divUndoImgL" style="display: none; ">
+			<div id="divInnerUL" style="background-color: rgb(229, 229, 229); opacity: 1; position: absolute; box-shadow: rgb(102, 102, 102) 5px 5px 8px; width: 201px; height: 220px; zoom: 1; top: 90px; left: 150px; z-index: 8; background-position: initial initial; background-repeat: initial initial; ">
+				<img src="A.jpg" class="imgAG" id="InnerUL" style="opacity:1; width: 100%; height: 100%; width: 181px; height: 200px;">
+			</div>
+				
+		</div>
+		<div id="divUndoImgR" style="display: none; ">
+			<div id="divInnerUR" style="background-color: rgb(229, 229, 229); opacity: 1; position: absolute; box-shadow: rgb(102, 102, 102) 5px 5px 8px; width: 201px; height: 220px; zoom: 1; top: 90px; left: 500px; z-index: 8; background-position: initial initial; background-repeat: initial initial; ">
+				<img src="2.jpg" class="imgAG" id="InnerUR" style="opacity:1; width: 100%; height: 100%; width: 181px; height: 200px;">
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+</div>
+
+		<!-- ui-dialog -->
+		<div id="dialog" title="" style="display:none">
+			<p></p>
+		</div>
+<!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"--><!--/script-->
+
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.24.custom.min.js"></script>
+<script type="text/javascript" src="jquery.form.js"></script>
+<script type="text/javascript" src="Browser.js"></script>
+<script type="text/javascript" src="JSON.js"></script>
+<script type="text/javascript" src="aliengalleryanim2.js"></script>
+<script type="text/javascript" src="aliengallery.js"></script>
+<script>
+
+
+window.arrDictionary = {
+	'perfect' : 'Perfect',
+	'good' : 'Good',
+	'dontknow' : 'Don\'t know',
+	'noway' : 'No way',
+	'clicks': 'Yo ur clicks',
+	'reportImgs': 'Report to admin',
+	'undo': 'Undo',
+	'cancelMsg' : 'Cancel',
+	'reportUserWhy': 'Enter your report...',
+	'reportRight' : 'Report left',
+	'reportLeft' : 'Report right',
+	'reportOK': 'Thank you for reported !',
+	'msgEmpty' : 'Please, enter some text in this report !',
+	'msgTitle' : 'Report images to administrators',
+	'maxSize' : 'Please, do not enter over size possible'
+};
+function o(k) { return (window.arrDictionary && window.arrDictionary[k])? window.arrDictionary[k]: '';}
+
+var strDivId = 'divAliengallery';
+var nClicks = 100; // users clicks
+
+var arrPic1 = { 'url': '1.jpg', 'id': '1001', 'title': 'title-pic1', 'w': '200', 'h': '220'};
+var arrPic2 = { 'url': '2.jpg', 'id': '1002', 'title': 'title-pic2', 'w': '200', 'h': '220'};
+var arrPic3 = { 'url': '3.jpg', 'id': '1003', 'title': 'title-pic3', 'w': '200', 'h': '220'};
+var arrPic4 = { 'url': '4.jpg', 'id': '1004', 'title': 'title-pic4', 'w': '200', 'h': '220'};
+var arrPic5 = { 'url': '5.jpg', 'id': '1004', 'title': 'title-pic4', 'w': '150', 'h': '113'};
+var arrPicA = { 'url': 'A.jpg', 'id': '1005', 'title': 'title-artist1', 'w': '200', 'h': '220'};
+var arrPicB = { 'url': 'B.jpg', 'id': '1006', 'title': 'title-artist2', 'w': '300', 'h': '300'};
+var arrPicC = { 'url': 'C.jpg', 'id': '1006', 'title': 'title-artist2', 'w': '200', 'h': '220'};
+
+var arrDoublePics1 = { 'l': arrPicA, 'r': arrPic1, 'v': 'perfect' }; // left + right + average vote
+var arrDoublePics2 = { 'l': arrPicA, 'r': arrPic2, 'v': 'good' };
+var arrDoublePics3 = { 'l': arrPicB, 'r': arrPic3, 'v': 'noway' };
+var arrDoublePics4 = { 'l': arrPicB, 'r': arrPic4, 'v': '' };
+var arrDoublePics5 = { 'l': arrPicC, 'r': arrPic3, 'v': '' };
+
+var arrIniPics = new Array();
+arrIniPics[0]= arrDoublePics1;
+arrIniPics[1]= arrDoublePics2;
+arrIniPics[2]= arrDoublePics3;
+arrIniPics[3]= arrDoublePics4;
+arrIniPics[4]= arrDoublePics5;
+
+
+
+/**
+ * Next pair of pictures, which should appear in the deep space.
+ * This function will be called, after the user clicked on a button (perfect,good,..,no way)
+ * eg.
+ * { "l":{"url":"A.jpg","id":"1005","title":"title-artist1","w":"200","h":"220"},
+ *   "r":{"url":"1.jpg","id":"1001","title":"title-pic1","w":"200","h":"220"}
+ * }
+ * @return array of two pictures in it.
+ */
+var myFunctionForAddingAPicturePair = function() {
+
+   // add always the same picture pair to the gallery
+   //var arrDoublePics = { 'l': arrPicC, 'r': arrPic5 }; // left and right image
+   //return arrDoublePics;
+
+   // make a loop of 4 pairs....
+   var arr = arrIniPics;
+   if (!document.alienAdd || document.alienAdd>=arr.length) document.alienAdd=0;
+   var arrDoublePics = arr[ document.alienAdd ];
+   document.alienAdd++;
+   return arrDoublePics;
+}
+
+var fHorizontal=true;
+
+window.alienGallery = window.alienGallery || new AlienGallery();
+
+window.alienGallery.execute(
+       window.arrDictionary,                // translation for all button texts and 'clicks:'
+       arrIniPics,                          // array of 4 picture pairs
+       myFunctionForAddingAPicturePair,     // Will be called, after the user clicked on a button
+       nClicks,                             // how many times has the user clicked yet
+       fHorizontal,                         // left + right or top + button
+       strDivId                             // html div id, where to put the gallery into.
+);
+window.srvPath="http://localhost";
+</script>
+
+
+
+
+<form id="reportForm" name="reportForm" method="post" action="index.php">
+	<input id="contentMsg" name="contentMsg" value="" type="hidden"/>
+</form>
+<div id="divToUpdate" style="display:none"></div>
+
+
+</body>
+</html>

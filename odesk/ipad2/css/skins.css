@@ -1,0 +1,285 @@
+/*                                      PALETTE & PATTERNS
+__________________________________________________________
+*/
+
+.iosfix {
+  height: 101%;
+  overflow: hidden;
+}
+
+#logo {
+	width: auto;
+	margin: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 9800;
+  opacity: 0;
+}
+#logo .nav_logo_w {
+    background: url("../images/logo_small.png") repeat scroll 0 0 transparent;
+    height: 50px;
+    margin: 0 0 0 50px;
+    position: absolute;
+    width: 195px;
+    z-index: 99;
+    left: 0;
+}
+
+#tools {
+    position: fixed;
+    top: 86px;
+    left: 5px;
+    z-index: 99;
+    float:left;
+    width: 44px;
+}
+    #tools .selected {
+            border: 1px solid #333;
+            margin-left:0;
+        }
+        
+    #palette,
+    #patterns {
+        background: #eeeeee;
+        padding: 4px 5px 2px 5px;
+        box-shadow: 0 0 5px #111;
+        border-top: 1px solid #fff;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        width: 34px;
+        float:left;
+    }
+    #palette div {
+        float:left;
+        width: 30px;
+        height:30px;
+        padding: 1px;
+        margin-bottom: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+		margin-left:1px;
+        cursor: pointer;
+    }
+    #palette #c_red {
+        background: #ff3300;
+    }
+        #palette #c_red:hover {
+            box-shadow: 0 0 3px #ff3300;
+        }
+    #palette #c_blue {
+        background: #1d7ccc;
+    }
+        #palette #c_blue:hover {
+            box-shadow: 0 0 3px #1d7ccc;
+        }
+    #palette #c_green {
+        background: #7cce06;
+    }
+        #palette #c_green:hover {
+            box-shadow: 0 0 3px #7cce06;
+        }
+    #palette #c_pink {
+        background: #ff009c;
+    }
+        #palette #c_pink:hover {
+            box-shadow: 0 0 3px #ff009c;
+        }
+    #palette #c_orange {
+        background: #fca40a;
+    }
+        #palette #c_orange:hover {
+            box-shadow: 0 0 3px #fca40a;
+        }
+    #palette #c_gray {
+        background: #7b7b7b;
+    }
+        #palette #c_gray:hover {
+            box-shadow: 0 0 3px #7b7b7b;
+        }
+		
+#patterns {
+	float:left;
+	margin-top:20px;
+}
+	#patterns > div {
+		float:left;
+        width: 30px;
+        height:30px;
+        padding: 1px;
+        margin-bottom: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+		margin-left:1px;
+		background-color: #ff3300;
+		cursor: pointer;
+	}
+	#patterns #pat_1 {
+		background-image: url(../images/patterns/pattern_1.png);
+	}
+	#patterns #pat_2 {
+		background-image: url(../images/patterns/pattern_2.png);
+	}
+	#patterns #pat_3 {
+		background-image: url(../images/patterns/pattern_3.png);
+	}
+	#patterns #pat_4 {
+		background-image: url(../images/patterns/pattern_4.png);
+	}
+	#patterns #pat_5 {
+		background-image: url(../images/patterns/pattern_5.png);
+	}
+    
+    #tools span {
+        font: normal 20px/20px 'Oswald';
+        position: absolute;
+        left: 25px;
+        top:0;
+    }
+    
+    div#but_collapse,
+    div#but_expand {
+        background-color: #fff;
+        color:#333;
+        font: bold 20px/20px arial;
+        float:left;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        cursor:pointer;
+        margin-bottom: 5px;
+    }
+        div#but_expand:hover,
+        div#but_collapse:hover {
+            background-color:#333;
+            color:#fff;
+        }
+    div#but_collapse {
+        display:none;
+    }
+    #toolsHolder {
+        float:left;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+/*                                                  COLORS
+__________________________________________________________
+*/
+    
+#body_pat.c_red { background-color: #ff3300; }
+    .c_red div#navbarHolder {background-color: #ff3300;}
+    .c_red div#navbar {background-image: url(../images/navbar_red.png);}
+    .c_red div#work h2, .c_red div#projects h2, .c_red div#contact h2 { color: #ff3300; border-bottom: 6px solid #ff3300;}
+    .c_red a { color: #ff3300;}
+    .c_red .m_r { color: #ff3300;}
+    .c_red div#headline h1 {color: #ff3300;}
+    .c_red div#headline h2 a:hover { color: #ff3300; }
+    .c_red .item_text h3 {color: #ff3300; }
+    .c_red .btn_see_it_live { color: #ff3300; }
+    .c_red .close_item_info, .c_red .next_slide, .c_red .prev_slide { background-color: #ff3300;}
+    .c_red .contactContainer input.btn { background-color: #ff3300;}
+    .c_red .contact_social a, .c_red .contact_social span span {background-color: #ff3300;}
+    .c_red #btn_top { background-color: #ff3300;}
+    .c_red #btn_top { background-color: #ff3300;}
+    .c_red #patterns > div {background-color: #ff3300;}
+    .c_red .about_text ul {list-style-image: url(../images/li_check_red.png);}
+    .c_red .item_text ul { list-style-image: url(../images/li_check_red.png);}
+
+#body_pat.c_blue { background-color: #1d7ccc; }
+    .c_blue div#navbarHolder {background-color: #1d7ccc;}
+    .c_blue div#navbar {background-image: url(../images/navbar_blue.png);}
+    .c_blue div#work h2, .c_blue div#projects h2, .c_blue div#contact h2 { color: #1d7ccc; border-bottom: 6px solid #1d7ccc; }
+    .c_blue a { color: #1d7ccc;}
+    .c_blue .m_r { color: #1d7ccc;}
+    .c_blue div#headline h1 {color: #1d7ccc;}
+    .c_blue div#headline h2 a:hover { color: #1d7ccc; }
+    .c_blue .item_text h3 {color: #1d7ccc; }
+    .c_blue .btn_see_it_live { color: #1d7ccc; }
+    .c_blue .close_item_info, .c_blue .next_slide, .c_blue .prev_slide { background-color: #1d7ccc;}
+    .c_blue .contactContainer input.btn { background-color: #1d7ccc;}
+    .c_blue .contact_social a, .c_blue .contact_social span span {background-color: #1d7ccc;}
+    .c_blue #btn_top { background-color: #1d7ccc;}
+    .c_blue #patterns > div {background-color: #1d7ccc;}
+    .c_blue .about_text ul {list-style-image: url(../images/li_check_blue.png);}
+    .c_blue .item_text ul { list-style-image: url(../images/li_check_blue.png);}
+
+#body_pat.c_green { background-color: #7cce06; }
+    .c_green div#navbarHolder {background-color: #7cce06;}
+    .c_green div#navbar {background-image: url(../images/navbar_green.png);}
+    .c_green div#work h2, .c_green div#projects h2, .c_green div#contact h2 { color: #7cce06; border-bottom: 6px solid #7cce06;}
+    .c_green a { color: #7cce06;}
+    .c_green .m_r { color: #7cce06;}
+    .c_green div#headline h1 {color: #7cce06;}
+    .c_green div#headline h2 a:hover { color: #7cce06; }
+    .c_green .item_text h3 {color: #7cce06; }
+    .c_green .btn_see_it_live { color: #7cce06; }
+    .c_green .close_item_info, .c_green .next_slide, .c_green .prev_slide { background-color: #7cce06;}
+    .c_green .contactContainer input.btn { background-color: #7cce06;}
+    .c_green .contact_social a, .c_green .contact_social span span {background-color: #7cce06;}
+    .c_green #btn_top { background-color: #7cce06;}
+    .c_green #patterns > div {background-color: #7cce06;}
+    .c_green .about_text ul {list-style-image: url(../images/li_check_green.png);}
+    .c_green .item_text ul { list-style-image: url(../images/li_check_green.png);}
+
+#body_pat.c_pink { background-color: #ff009c; }
+    .c_pink div#navbarHolder {background-color: #ff009c;}
+    .c_pink div#navbar {background-image: url(../images/navbar_pink.png);}
+    .c_pink div#work h2, .c_pink div#projects h2, .c_pink div#contact h2 { color: #ff009c; border-bottom: 6px solid #ff009c;}
+    .c_pink a { color: #ff009c;}
+    .c_pink .m_r { color: #ff009c;}
+    .c_pink div#headline h1 {color: #ff009c;}
+    .c_pink div#headline h2 a:hover { color: #ff009c; }
+    .c_pink .item_text h3 {color: #ff009c; }
+    .c_pink .btn_see_it_live { color: #ff009c; }
+    .c_pink .close_item_info, .c_pink .next_slide, .c_pink .prev_slide { background-color: #ff009c;}
+    .c_pink .contactContainer input.btn { background-color: #ff009c;}
+    .c_pink .contact_social a, .c_pink .contact_social span span {background-color: #ff009c;}
+    .c_pink #btn_top { background-color: #ff009c;}
+    .c_pink #patterns > div {background-color: #ff009c;}
+    .c_pink .about_text ul {list-style-image: url(../images/li_check_pink.png);}
+    .c_pink .item_text ul { list-style-image: url(../images/li_check_pink.png);}
+
+#body_pat.c_orange { background-color: #fca40a; }
+    .c_orange div#navbarHolder {background-color: #fca40a;}
+    .c_orange div#navbar {background-image: url(../images/navbar_orange.png);}
+    .c_orange div#work h2, .c_orange div#projects h2, .c_orange div#contact h2 { color: #fca40a; border-bottom: 6px solid #fca40a;}
+    .c_orange a { color: #fca40a;}
+    .c_orange .m_r { color: #fca40a;}
+    .c_orange div#headline h1 {color: #fca40a;}
+    .c_orange div#headline h2 a:hover { color: #fca40a; }
+    .c_orange .item_text h3 {color: #fca40a; }
+    .c_orange .btn_see_it_live { color: #fca40a; }
+    .c_orange .close_item_info, .c_orange .next_slide, .c_orange .prev_slide { background-color: #fca40a;}
+    .c_orange .contactContainer input.btn { background-color: #fca40a;}
+    .c_orange .contact_social a, .c_orange .contact_social span span {background-color: #fca40a;}
+    .c_orange #btn_top { background-color: #fca40a;}
+    .c_orange #patterns > div {background-color: #fca40a;}
+    .c_orange .about_text ul {list-style-image: url(../images/li_check_orange.png);}
+    .c_orange .item_text ul { list-style-image: url(../images/li_check_orange.png);}
+
+#body_pat.c_gray { background-color: #7b7b7b; }
+    .c_gray div#navbarHolder {background-color: #7b7b7b;}
+    .c_gray div#navbar {background-image: url(../images/navbar_gray.png);}
+    .c_gray div#work h2, .c_gray div#projects h2, .c_gray div#contact h2 { color: #7b7b7b; border-bottom: 6px solid #7b7b7b;}
+    .c_gray a { color: #7b7b7b;}
+    .c_gray .m_r { color: #7b7b7b;}
+    .c_gray div#headline h1 {color: #7b7b7b;}
+    .c_gray div#headline h2 a:hover { color: #7b7b7b; }
+    .c_gray .item_text h3 {color: #7b7b7b; }
+    .c_gray .btn_see_it_live { color: #7b7b7b; }
+    .c_gray .close_item_info, .c_gray .next_slide, .c_gray .prev_slide { background-color: #7b7b7b;}
+    .c_gray .contactContainer input.btn { background-color: #7b7b7b;}
+    .c_gray .contact_social a, .c_gray .contact_social span span {background-color: #7b7b7b;}
+    .c_gray #btn_top { background-color: #7b7b7b;}
+    .c_gray #patterns > div {background-color: #7b7b7b;}
+    .c_gray .about_text ul {list-style-image: url(../images/li_check_gray.png);}
+    .c_gray .item_text ul { list-style-image: url(../images/li_check_gray.png);}
