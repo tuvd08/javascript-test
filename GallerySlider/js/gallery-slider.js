@@ -126,7 +126,7 @@ var GALLERY = {
           left = 0;
           this.className = clazz + " DisableLeft";
         }
-        GALLERY.posisionElm.setPosision(GALLERY.contElmHor, 'right', GALLERY.currentLeft, left);
+        GALLERY.posisionElm.setPosision(GALLERY.contElmHor, GALLERY.currentLeft, left);
         GALLERY.currentLeft = left;
         GALLERY.indexHor -= 1;
         var rbt = GALLERY.Core.findFriendElementByClassName(this, 'div', 'RightButton', 'Next');
@@ -142,7 +142,7 @@ var GALLERY = {
         if (!GALLERY.contElmHor) {
           GALLERY.contElmHor = document.getElementById(GALLERY.idHor);
         }
-        GALLERY.posisionElm.setPosision(GALLERY.contElmHor, 'left', GALLERY.currentLeft, left);
+        GALLERY.posisionElm.setPosision(GALLERY.contElmHor, GALLERY.currentLeft, left);
         GALLERY.currentLeft = left;
         GALLERY.indexHor += 1;
         var rbt = GALLERY.Core.findFriendElementByClassName(this, 'div', 'LeftButton', 'Previous');
@@ -155,21 +155,24 @@ var GALLERY = {
 
   initExistItem : function(id) {
     var all = document.getElementById(id);
-    var items = all.getElementsByTagName('img');
-    var ITEM;
-    for ( var i = 0; i < items.length; i++) {
-      ITEM = new newItem();
-      ITEM.index = i;
-      ITEM.src = items[i].src;
-      this.items[i] = ITEM;
+    if(all) {
+      var items = all.getElementsByTagName('img');
+      var ITEM;
+      for ( var i = 0; i < items.length; i++) {
+        ITEM = new newItem();
+        ITEM.index = i;
+        ITEM.src = items[i].src;
+        this.items[i] = ITEM;
+      }
+      this.length = this.items.length;
     }
-    this.length = this.items.length;
-    //all.innerHTML = '';
   },
   addTo : function(id, width, height) {
     var to = document.getElementById(id);
-    this.maxW = (width * this.length);
-    to.appendChild(this.builderHor("HorContainer", width, height));
+    if(to){
+      this.maxW = (width * this.length);
+      to.appendChild(this.builderHor("HorContainer", width, height));
+    }
   },
   
   posisionElm : {
@@ -177,34 +180,28 @@ var GALLERY = {
     type : "",
     from : 0,
     to : 0,
-    setPosision : function(oj, type, from, to) {
+    setPosision : function(oj, from, to) {
       this.oj = oj;
-      this.type = type;
       this.from = from;
       this.to = to;
       this.changePosision();
     },
     changePosision : function() {
       if (this.oj) {
-        if (this.type == 'left') {
-          if (this.from > this.to) {// 0 -- -200
-            this.from = this.from - 20;
-            this.oj.style.left = this.from + 'px';
-            setTimeout('GALLERY.posisionElm.changePosision()', 10);
-          } else {
-            this.from = this.to;
-            this.oj.style.left = this.from + 'px';
-          }
-        } else if (this.type == 'right') {
-          if (this.from < this.to) {
-            this.from = this.from + 20;
-            this.oj.style.left = this.from + 'px';
-            setTimeout('GALLERY.posisionElm.changePosision()', 10);
-          } else {
-            this.from = this.to;
-            this.oj.style.left = this.from + 'px';
-          }
+        var from = this.from, to = this.to;
+        var dt = (to-from)/15;
+        if(GALLERY.posisionElm.interV) {
+          window.clearInterval(GALLERY.posisionElm.interV);
         }
+        GALLERY.posisionElm.interV = window.setInterval( function() {
+          if(dt > 0 && from > to || dt < 0 && from < to) {
+            GALLERY.posisionElm.oj.style.left = to + "px";
+            window.clearInterval(GALLERY.posisionElm.interV);
+          } else {
+            GALLERY.posisionElm.oj.style.left = (from) + "px";
+            from += dt;
+          }
+        }, 10);
       }
     }
   },
