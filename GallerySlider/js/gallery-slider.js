@@ -15,19 +15,23 @@ function newItem() {
     content : "",
     style : "",
     clazz : "",
+    display : "",
     id : "",
     img: null,
     src: "",
     getElm : function() {
       var elm = document.createElement(this.type);
+      if (String(this.style).length > 0) {
+        elm.setAttribute('style', this.style);
+      }
       if (this.width > 0) {
         elm.style.width = this.width + "px";
       }
       if (this.height > 0) {
         elm.style.height = this.height + "px";
       }
-      if (String(this.style).length > 0) {
-        elm.setAttribute('style', this.style);
+      if (String(this.display).length > 0) {
+        elm.style.display = this.display;
       }
       if (String(this.clazz).length > 0) {
         elm.className = this.clazz;
@@ -95,9 +99,12 @@ var GALLERY = {
   },
   setItem: function(id, width, height) {
     var item = new newItem();
+    item.type = "a";
+    item.display = "block";
     item.width = width;
     item.height = height;
     item.clazz = "Item";
+    item.style = "text-align:center; display:block;";
     var elm = item.getElm();
     img = new Image();
     img.src = this.items[id].src;
@@ -108,6 +115,7 @@ var GALLERY = {
       img.height = height - 5;
     }
     img.style.margin = "auto";
+    elm.href = img.src;
     elm.appendChild(img);
     var title = new newItem();
     title.clazz = "TitleImage";
